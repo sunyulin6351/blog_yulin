@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on 雨林说</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on 雨林说</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 03 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>你好，世界！</title>
+      <link>http://localhost:1313/posts/hello/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/hello/</guid>
+      <description>&lt;p&gt;这是我的第一篇博客文章。
+我正在学习怎么做一个个人博客！&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

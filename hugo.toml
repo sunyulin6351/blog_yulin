@@ -1,0 +1,8 @@
+baseURL = "https://sunyulin6351.github.io/"
+languageCode = "zh-cn"
+title = "雨林说"
+theme = "PaperMod"
+
+[params]
+  ShowReadingTime = true
+  ShowShareButtons = true
