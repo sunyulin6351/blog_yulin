@@ -6,3 +6,4 @@ theme = "PaperMod"
 [params]
   ShowReadingTime = true
   ShowShareButtons = true
+  disableSpecial1stPost = true
