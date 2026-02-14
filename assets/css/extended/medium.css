@@ -1,0 +1,61 @@
+/* ============================= */
+/*  Medium-style Layout for PaperMod */
+/* ============================= */
+
+/* 整体页面宽度（列表页稍宽） */
+main {
+    max-width: 900px !important;
+    margin: 0 auto;
+}
+
+/* 文章正文阅读宽度（更窄，更专注） */
+.post-content {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* 标题更有呼吸感 */
+.post-title {
+    font-size: 34px;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+}
+
+/* 列表卡片更干净 */
+.post-entry {
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* 悬停微动画（Medium感） */
+.post-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 列表页摘要字体 */
+.entry-content {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* 日期更轻一点 */
+.entry-footer {
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+/* 正文段落间距 */
+.post-content p {
+    margin-bottom: 1.5em;
+}
+
+/* 正文图片居中 */
+.post-content img {
+    display: block;
+    margin: 2em auto;
+    border-radius: 10px;
+}
