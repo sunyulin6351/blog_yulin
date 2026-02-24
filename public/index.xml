@@ -4,10 +4,54 @@
     <title>雨林说</title>
     <link>http://localhost:1313/</link>
     <description>Recent content on 雨林说</description>
-    <generator>Hugo -- 0.155.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 03 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>摆脱文件夹焦虑！我靠两款工具，彻底重构了电脑文件管理逻辑</title>
+      <link>http://localhost:1313/posts/20260214/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/20260214/</guid>
+      <description>&lt;p&gt;很早以前就听过一个说法：用苹果Mac电脑，根本不需要文件夹，想要找文件，靠全局搜索就够了。&lt;/p&gt;
+&lt;p&gt;在很长一段时间里，我始终无法理解这种管理方式。毕竟我常年用Windows，早已习惯了用文件夹分门别类管理所有文件——在我的认知里，这是最“合理”的方式：文件夹的命名、分类逻辑、层级结构，不仅能让文件一目了然，更藏着我对“结构化管理”的执念。&lt;/p&gt;
+&lt;p&gt;但这份执念，慢慢变成了我的负担。&lt;/p&gt;
+&lt;h2 id=&#34;文件夹管理的致命缺点越整理越焦虑&#34;&gt;文件夹管理的致命缺点：越整理，越焦虑&lt;/h2&gt;
+&lt;p&gt;文件夹管理的问题，随着文件越来越多逐渐暴露，最明显的就是文件冗余。比如一份文件可能同时用到两个项目里，按照传统逻辑，我就得在两个项目文件夹下各存一份（哪怕只是版本略有不同）。&lt;/p&gt;
+&lt;p&gt;更让人头疼的是后续的整理压力。我会不由自主地定期想要“复盘整理”所有文档，可当电脑里的文档超过5000份，散落在几十个甚至上百个文件夹里时，每次整理都像一场“硬仗”。那种看着杂乱文件夹的无力感、担心漏整理、怕找不见文件的焦虑，几乎贯穿了我每一次办公。&lt;/p&gt;
+&lt;p&gt;直到我遇到了两款工具，才彻底跳出了这个循环——Everything和Anytxt Search。&lt;/p&gt;
+&lt;h2 id=&#34;两款工具帮我彻底告别文件夹&#34;&gt;两款工具，帮我彻底告别文件夹&lt;/h2&gt;
+&lt;p&gt;这两款工具，彻底颠覆了我对文件管理的认知：&lt;/p&gt;
+&lt;p&gt;第一款是Everything，一款老牌文件搜索工具。它能根据文件名、文件路径，甚至自定义筛选条件，瞬间定位到你想要的文件，速度快到几乎无延迟。其实我很早就安装过它，但之前一直依赖文件夹管理，几乎没怎么用过，直到我狠心删除了所有文件夹结构，只留下零散的文件，才发现它的强大——原来找文件，真的可以不用点一层又一层文件夹。&lt;/p&gt;
+&lt;p&gt;第二款是Anytxt Search，它比Everything更“进阶”——支持全文检索。哪怕你不记得文件名，只记得文件里的一句话、一个关键词，甚至一个短语，它都能快速帮你找到对应的文件。&lt;/p&gt;
+&lt;p&gt;当Everything的文件名检索，遇上Anytxt Search的全文检索，我突然意识到：我真的可以彻底摆脱文件夹了。&lt;/p&gt;
+&lt;h2 id=&#34;认知改变比起整理更重要的是找到&#34;&gt;认知改变：比起“整理”，更重要的是“找到”&lt;/h2&gt;
+&lt;p&gt;这两款工具带来的，不只是效率的提升，更是认知的转变。&lt;/p&gt;
+&lt;p&gt;我之前一直执着于“整理”，总觉得“文件必须归位”才叫管理，但其实，文件管理的核心从来不是“看起来整齐”，而是“需要时能快速找到”。文件夹管理看似结构化，却给我增加了额外的管理成本和焦虑；而全局搜索的方式，反而把我从“整理文件”的内耗里解放了出来。&lt;/p&gt;
+&lt;p&gt;现在我的核心工作流，简单到极致：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当天处理的工作文件，全部平铺在电脑桌面，不用特意归类；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当天工作结束后，把所有文件一次性拖进一个统一的文档库，不用细分文件夹；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;后续需要找文件时，用Everything搜文件名，用Anytxt Search搜文件内容，瞬间定位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;唯一需要注意的，就是文件命名要规范——加上日期、核心关键词、版本号，比如“20260214-项目方案-V2”，这样不管用哪款工具搜索，都能更快匹配到。&lt;/p&gt;
+&lt;h2 id=&#34;最后想说&#34;&gt;最后想说&lt;/h2&gt;
+&lt;p&gt;现在我终于不用再为“整理文件夹”内耗，也不用再因为找不到文件焦虑。我可以把更多精力放在文档本身的编写和制作上，而不是纠结“它应该放在哪个文件夹里”。&lt;/p&gt;
+&lt;p&gt;目前这种无文件夹的管理方式，我还在持续体验中，也在慢慢优化细节（比如文件命名规则、文档库的定期清理）。如果你也被文件夹管理的焦虑困扰，不妨试试这种方式，或许会打开新世界的大门～&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/template/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/template/</guid>
+      <description>&lt;p&gt;这是我的博客文章模板。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>你好，世界！</title>
       <link>http://localhost:1313/posts/hello/</link>
