@@ -10,7 +10,7 @@ paginate = 10
   name = "雨林"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "JSON"]
 
 [permalinks]
   posts = "/posts/:year/:month/:slug/"
@@ -48,4 +48,41 @@ paginate = 10
  [params.homeInfoParams]
     Title = "雨林的生活实验室"
     Content = "人生系统 | 生活实验"
+  
+ # 顶部菜单
+ [menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "categories"
+    name = "分类"
+    url = "/categories/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 40
+
+ # Taxonomies：分类/标签（PaperMod 自动支持）
+ [taxonomies]
+  category = "categories"
+  tag = "tags"
+
+ # Markdown 渲染增强
+ [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # 允许文章里使用少量 HTML（比如嵌入视频/iframe）
 
