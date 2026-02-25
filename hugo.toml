@@ -33,7 +33,7 @@ disableKinds = ["RSS"]
   enableSearch = true
 
   #Contents
-  ShowToc = true
+  ShowToc = false
   TocOpen = false
 
   #Search
