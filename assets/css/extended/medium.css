@@ -107,7 +107,7 @@ pre, code {
 }
 
 /* 首页背景图 */
-body.home {
+body.list {
     background-image: url('/images/home-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -115,7 +115,7 @@ body.home {
 }
 
 /* 加一层暗色遮罩，让文字更清晰 */
-body.home::before {
+body.list::before {
     content: "";
     position: fixed;
     inset: 0;
