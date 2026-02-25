@@ -3,6 +3,8 @@ languageCode = "zh-cn"
 title = "雨林说"
 theme = "PaperMod"
 
+enableRobotsTXT = true
+paginate = 10
 
 [params]
   customCSS = ["css/extended/medium.css"]
@@ -16,7 +18,7 @@ theme = "PaperMod"
   disableSpecial1stPost = true
   author = "雨林"
   defaultTheme = "auto"
-  description = "This is a blog of mine." 
+  
   
 
  [params.homeInfoParams]
