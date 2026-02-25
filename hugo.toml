@@ -58,10 +58,32 @@ disableKinds = ["RSS"]
     minMatchCharLength = 2
     keys = ["title", "permalink", "summary", "content"]
 
-# HomeHero
-[params.homeInfoParams]
-  Title = "雨林的生活实验室"
-  Content = "我把生活当作一个长期实验项目，用系统思维拆解问题，用小规模试验验证想法，记录每一次迭代的过程。从时间管理到身体训练，从知识输入到表达输出，我希望一点点搭建属于自己的'人生操作系统'。"
+# Profile Mode
+[params.profileMode]
+  enabled = true
+  title = "雨林的生活实验室"
+  subtitle = "我把生活当作一个长期实验项目，用系统思维拆解问题，用小规模试验验证想法，记录每一次迭代的过程。从时间管理到身体训练，从知识输入到表达输出，我希望一点点搭建属于自己的'人生操作系统'。"
+  imageUrl = ""  # 可选：添加头像图片链接
+  imageTitle = "雨林"  # 可选：图片标题
+  imageWidth = 120
+  imageHeight = 120
+
+  [[params.profileMode.buttons]]
+    name = "文章"
+    url = "/posts/"
+  
+  [[params.profileMode.buttons]]
+    name = "分类"
+    url = "/categories/"
+  
+  [[params.profileMode.buttons]]
+    name = "标签"
+    url = "/tags/"
+
+# Social Icons
+[[params.socialIcons]]
+  name = "Github"
+  url = "https://github.com/sunyulin6351"
 
 # 顶部菜单
 [menu]
