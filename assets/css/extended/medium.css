@@ -106,12 +106,21 @@ pre, code {
   border-radius: 10px;
 }
 
-.home-info {
+/* 首页背景图 */
+body.home {
     background-image: url('/images/home-bg.jpg');
     background-size: cover;
     background-position: center;
-    padding: 120px 0;
-    border-radius: 20px;
+    background-attachment: fixed;
+}
+
+/* 加一层暗色遮罩，让文字更清晰 */
+body.home::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
 }
 
 /* =========================
