@@ -106,20 +106,26 @@ pre, code {
   border-radius: 10px;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
-body::before{
-  content:"";
+/* 背景图层 */
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
   background: url('/images/home-bg.jpg') center/cover no-repeat;
-  z-index: -1;
-  transform: translateZ(0);
+  z-index: -2;
 }
 
-/* 可选：如果你希望内容卡片不是纯色遮住背景，就让主内容透明一点 */
-.main {
-  background: transparent !important;
+/* 暗色遮罩层 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* 数值越大越暗 */
+  z-index: -1;
 }
 
 /* =========================
