@@ -10,7 +10,7 @@ main {
 
 /* 文章正文阅读宽度（更窄，更专注） */
 .post-content {
-    max-width: 760px;
+    max-width: 800px;
     margin: auto;
     font-size: 16px;
     line-height: 1.8;
@@ -58,4 +58,26 @@ main {
     display: block;
     margin: 2em auto;
     border-radius: 10px;
+}
+
+/* 让列表/引用更舒服 */
+.post-content ul,
+.post-content ol {
+  line-height: 1.8;
+}
+
+.post-content blockquote {
+  border-left-width: 4px;
+  padding-left: 14px;
+  margin-left: 0;
+}
+
+/* 图片更“杂志感” */
+.post-content img {
+  border-radius: 12px;
+}
+
+/* 代码块略微圆润 */
+pre, code {
+  border-radius: 10px;
 }
