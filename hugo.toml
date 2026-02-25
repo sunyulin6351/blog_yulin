@@ -5,6 +5,6 @@ theme = "PaperMod"
 
 [params]
   ShowReadingTime = true
-  ShowShareButtons = true
+  ShowShareButtons = false
   disableSpecial1stPost = true
   author = "Yulin"
