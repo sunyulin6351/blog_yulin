@@ -5,11 +5,6 @@ theme = "PaperMod"
 
 
 [params]
-  
-  [params.homeInfoParams]
-    Title = "Hi there."
-    Content = "Can be Info, links, about..."
-  
   ShowReadingTime = true
   ShowShareButtons = false
   disableSpecial1stPost = true
@@ -17,5 +12,8 @@ theme = "PaperMod"
   defaultTheme = "auto"
   description = "This is a blog of mine." 
   ShowBreadCrumbs = true
-
+  
+ [params.homeInfoParams]
+    Title = "Hi there."
+    Content = "Can be Info, links, about..."
 
