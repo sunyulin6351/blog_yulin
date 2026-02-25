@@ -10,7 +10,7 @@ paginate = 10
   name = "雨林"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "JSON"]
 
 [permalinks]
   posts = "/posts/:year/:month/:slug/"
