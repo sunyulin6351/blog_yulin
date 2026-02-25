@@ -94,6 +94,13 @@ main {
   border-radius: 12px;
 }
 
+.post-nav a {
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* 代码块略微圆润 */
 pre, code {
   border-radius: 10px;
