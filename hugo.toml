@@ -6,6 +6,9 @@ theme = "PaperMod"
 enableRobotsTXT = true
 paginate = 10
 
+[author]
+  name = "雨林"
+
 [params]
   customCSS = ["css/extended/medium.css"]
   ShowReadingTime = true
@@ -16,7 +19,6 @@ paginate = 10
   TocOpen = false
   ShowShareButtons = false
   disableSpecial1stPost = true
-  author = "雨林"
   defaultTheme = "auto"
   
   
