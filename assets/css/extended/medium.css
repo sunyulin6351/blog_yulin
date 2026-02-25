@@ -105,3 +105,30 @@ main {
 pre, code {
   border-radius: 10px;
 }
+
+/* =========================
+   手机端字号优化
+   ========================= */
+@media (max-width: 768px) {
+
+  /* 文章主标题 */
+  .post-title {
+    font-size: 1.6rem !important;
+  }
+
+  /* 正文 h2 */
+  .post-content h2 {
+    font-size: 1.3rem;
+  }
+
+  /* 正文 h3 */
+  .post-content h3 {
+    font-size: 1.15rem;
+  }
+
+  /* 首页卡片标题 */
+  .entry-header h2 {
+    font-size: 1.1rem;
+  }
+
+}
