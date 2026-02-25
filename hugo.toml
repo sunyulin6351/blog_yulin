@@ -11,5 +11,6 @@ theme = "PaperMod"
   author = "雨林"
   defaultTheme = "auto"
   description = "This is a blog of mine." 
+  ShowBreadCrumbs = true
 
 
