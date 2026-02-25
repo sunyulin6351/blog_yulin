@@ -87,4 +87,6 @@ disableKinds = ["RSS"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true  # 允许文章里使用少量 HTML（比如嵌入视频/iframe）
+  [markup.highlight]
+    noClasses = false
 
