@@ -71,14 +71,6 @@ disableKinds = ["RSS"]
   [[params.profileMode.buttons]]
     name = "文章"
     url = "/posts/"
-  
-  [[params.profileMode.buttons]]
-    name = "分类"
-    url = "/categories/"
-  
-  [[params.profileMode.buttons]]
-    name = "标签"
-    url = "/tags/"
 
 # Social Icons
 [[params.socialIcons]]
