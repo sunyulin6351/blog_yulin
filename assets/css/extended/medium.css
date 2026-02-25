@@ -107,7 +107,7 @@ pre, code {
 }
 
 .home-info {
-    background-image: url('static/images/home-bg.jpg');
+    background-image: url('/images/home-bg.jpg');
     background-size: cover;
     background-position: center;
     padding: 120px 0;
