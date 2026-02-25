@@ -106,6 +106,14 @@ pre, code {
   border-radius: 10px;
 }
 
+.home-info {
+    background-image: url('static/images/home-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    border-radius: 20px;
+}
+
 /* =========================
    手机端字号优化
    ========================= */
