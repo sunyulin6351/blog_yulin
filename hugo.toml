@@ -6,8 +6,8 @@ theme = "PaperMod"
 
 [params]
   homeInfoParams =
-    Title = Hi there wave
-    Content = Can be Info, links, about...
+    Title = "Hi there wave"
+    Content = "Can be Info, links, about..."
   ShowReadingTime = true
   ShowShareButtons = false
   disableSpecial1stPost = true
