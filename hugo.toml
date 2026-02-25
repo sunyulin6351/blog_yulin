@@ -9,20 +9,42 @@ paginate = 10
 [author]
   name = "雨林"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+
 [params]
+  env = "production"
+  description = "雨林的个人博客：产品思考、人生系统、健身与理财、阅读与旅行。"
+  
+  defaultTheme = "auto" # auto / light / dark
   customCSS = ["css/extended/medium.css"]
+  disableSpecial1stPost = true
+  ShowShareButtons = false
   ShowReadingTime = true
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
   ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+
+  #Contents
   ShowToc = true
   TocOpen = false
-  ShowShareButtons = false
-  disableSpecial1stPost = true
-  defaultTheme = "auto"
-  
-  
 
+  #Search
+   [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 2
+    keys = ["title", "permalink", "summary", "content"]
+
+ #HomeHero
  [params.homeInfoParams]
     Title = "雨林的生活实验室"
     Content = "人生系统 | 生活实验"
