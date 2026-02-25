@@ -10,9 +10,9 @@ main {
 
 /* 文章正文阅读宽度（更窄，更专注） */
 .post-content {
-    max-width: 680px;
-    margin: 0 auto;
-    font-size: 18px;
+    max-width: 760px;
+    margin: auto;
+    font-size: 16px;
     line-height: 1.8;
 }
 

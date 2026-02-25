@@ -5,15 +5,21 @@ theme = "PaperMod"
 
 
 [params]
+  customCSS = ["css/extended/medium.css"]
   ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
   ShowShareButtons = false
   disableSpecial1stPost = true
   author = "雨林"
   defaultTheme = "auto"
   description = "This is a blog of mine." 
-  ShowBreadCrumbs = true
   
+
  [params.homeInfoParams]
-    Title = "Hi there."
-    Content = "Can be Info, links, about..."
+    Title = "雨林的生活实验记录"
+    Content = "人生系统 | 生活实验"
 
