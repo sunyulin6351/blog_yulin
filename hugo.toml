@@ -8,3 +8,7 @@ theme = "PaperMod"
   ShowShareButtons = false
   disableSpecial1stPost = true
   author = "雨林"
+  # defaultTheme: light
+  # defaultTheme: dark
+  defaultTheme: auto # to switch between dark or light according to browser theme
+
