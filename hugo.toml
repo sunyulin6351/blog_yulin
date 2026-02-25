@@ -2,6 +2,7 @@ baseURL = "https://blog.yulin.ltd/"
 languageCode = "zh-cn"
 title = "雨林说"
 theme = "PaperMod"
+description = "This is a blog of mine." 
 
 [params]
   ShowReadingTime = true
