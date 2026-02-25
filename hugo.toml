@@ -20,7 +20,7 @@ disableKinds = ["RSS"]
   env = "production"
   description = "雨林的个人博客：产品思考、人生系统、健身与理财、阅读与旅行。"
   
-  defaultTheme = "auto" # auto / light / dark
+  defaultTheme = "dark" # auto / light / dark
   customCSS = ["css/extended/medium.css"]
   disableSpecial1stPost = true
   ShowShareButtons = false

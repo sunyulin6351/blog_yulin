@@ -40,11 +40,11 @@ main {
     margin-bottom: 1.2rem;
 }
 
-/* 列表卡片更干净 */
+/* 列表卡片 */
 .post-entry {
-    border-radius: 12px;
-    padding: 24px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: rgba(20, 20, 20, 0.65) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* 悬停微动画（Medium感） */
