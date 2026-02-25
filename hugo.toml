@@ -8,5 +8,5 @@ theme = "PaperMod"
   ShowShareButtons = false
   disableSpecial1stPost = true
   author = "雨林"
-  defaultTheme = auto
+  defaultTheme = "auto"
 
