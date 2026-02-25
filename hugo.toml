@@ -30,6 +30,7 @@ disableKinds = ["RSS"]
   ShowCodeCopyButtons = true
   ShowWordCount = true
   ShowRssButtonInSectionTermList = true
+  enableSearch = true
 
   #Contents
   ShowToc = true
