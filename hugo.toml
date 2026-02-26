@@ -3,6 +3,7 @@ languageCode = "zh-cn"
 title = "雨林说"
 theme = "PaperMod"
 
+disableThemeToggle: true
 enableRobotsTXT = true
 paginate = 10
 disableKinds = ["RSS"]
