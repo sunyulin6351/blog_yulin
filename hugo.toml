@@ -3,7 +3,6 @@ languageCode = "zh-cn"
 title = "雨林说"
 theme = "PaperMod"
 
-disableThemeToggle = true
 enableRobotsTXT = true
 paginate = 10
 disableKinds = ["RSS"]
@@ -22,6 +21,7 @@ disableKinds = ["RSS"]
   description = "雨林的个人博客：产品思考、人生系统、健身与理财、阅读与旅行。"
   
   defaultTheme = "dark" # auto / light / dark
+  disableThemeToggle = true
   customCSS = ["css/extended/medium.css"]
   disableSpecial1stPost = true
   ShowShareButtons = false
