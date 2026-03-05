@@ -1,0 +1,41 @@
+name: Micro Blog
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  microblog:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Create micro post
+      run: |
+
+        DATE=$(date +"%Y-%m-%d-%H%M")
+
+        CONTENT="${{ github.event.issue.title }}"
+
+        FILE="content/micro/$DATE.md"
+
+        echo "---" >> $FILE
+        echo "date: $(date -Iseconds)" >> $FILE
+        echo "type: micro" >> $FILE
+        echo "draft: false" >> $FILE
+        echo "---" >> $FILE
+        echo "" >> $FILE
+        echo "$CONTENT" >> $FILE
+
+    - name: Commit and push
+      run: |
+
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+
+        git add .
+        git commit -m "New micro post"
+        git push

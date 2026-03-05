@@ -1,0 +1,17 @@
+<h2>最近动态</h2>
+
+<ul>
+
+{{ range first 5 (where site.RegularPages "Type" "micro") }}
+
+<li>
+<span style="color:#888;font-size:12px;">
+{{ .Date.Format "01-02" }}
+</span>
+ · 
+{{ .Plain }}
+</li>
+
+{{ end }}
+
+</ul>

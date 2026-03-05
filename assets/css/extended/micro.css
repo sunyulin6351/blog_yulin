@@ -1,0 +1,20 @@
+.micro-timeline {
+  max-width: 720px;
+  margin: auto;
+}
+
+.micro-post {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.micro-date {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.micro-content {
+  font-size: 16px;
+  line-height: 1.6;
+}

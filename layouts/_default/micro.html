@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+<div class="micro-timeline">
+
+{{ range .Pages.ByDate.Reverse }}
+
+<div class="micro-post">
+
+<div class="micro-date">
+{{ .Date.Format "2006-01-02 15:04" }}
+</div>
+
+<div class="micro-content">
+{{ .Content }}
+</div>
+
+</div>
+
+{{ end }}
+
+</div>
+
+{{ end }}
