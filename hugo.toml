@@ -70,6 +70,10 @@ disableKinds = ["RSS"]
   imageHeight = 120
 
   [[params.profileMode.buttons]]
+    name = "想法"
+    url = "/micro/"
+
+  [[params.profileMode.buttons]]
     name = "文章"
     url = "/posts/"
 
