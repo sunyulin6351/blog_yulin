@@ -27,14 +27,14 @@ jobs:
 
     - name: Create micro post
       run: |
-        DATE=$(date +"%Y-%m-%d-%H%M")
+        DATE=$(TZ=Asia/Shanghai date +"%Y-%m-%d-%H%M")
         CONTENT="${{ github.event.issue.title }}"
         FILE="content/micro/$DATE.md"
 
         mkdir -p content/micro
 
         echo "---" > $FILE
-        echo "date: $(date -Iseconds)" >> $FILE
+        echo "date: $(TZ=Asia/Shanghai date -Iseconds)" >> $FILE
         echo "type: micro" >> $FILE
         echo "draft: false" >> $FILE
         echo "---" >> $FILE
