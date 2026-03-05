@@ -44,6 +44,17 @@ jobs:
         git commit -m "micro: ${{ github.event.issue.title }}"
         git push
 
+    - name: Trigger Hugo Deploy
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: 'hugo.yml',
+            ref: 'main'
+          })
+
     - name: Close Issue
       uses: actions/github-script@v7
       with:
