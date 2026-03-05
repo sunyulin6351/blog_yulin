@@ -7,10 +7,15 @@ on:
 permissions:
   contents: write
   issues: write
+  pages: write
+  id-token: write
 
 jobs:
   microblog:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
 
@@ -44,10 +49,23 @@ jobs:
         git commit -m "micro: ${{ github.event.issue.title }}"
         git push
 
-    - name: Trigger Hugo Deploy
-      run: |
-        git commit --allow-empty -m "trigger: deploy"
-        git push
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: '0.156.0'
+        extended: true
+
+    - name: Build
+      run: hugo --minify
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./public
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
     - name: Close Issue
       uses: actions/github-script@v7
