@@ -1,5 +1,5 @@
 ---
-title: "一瞬"
+title: "Thoughts"
 layout: "micro"
 ---
 
