@@ -128,6 +128,76 @@ body::after {
   z-index: -1;
 }
 
+/* ============================= */
+/*  微信分享二维码弹窗            */
+/* ============================= */
+
+.wechat-share-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+}
+
+.wechat-qr-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.wechat-qr-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    max-width: 280px;
+    width: 90%;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+.wechat-qr-card img {
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.wechat-qr-title {
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 1rem;
+}
+
+.wechat-qr-hint {
+    color: #555;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0 0 1.2rem;
+}
+
+.wechat-qr-close {
+    background: #07C160;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.45rem 1.6rem;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.wechat-qr-close:hover {
+    background: #06ad56;
+}
+
 /* =========================
    手机端字号优化
    ========================= */
