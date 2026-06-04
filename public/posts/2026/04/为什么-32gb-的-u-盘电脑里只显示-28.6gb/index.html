@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>为什么 32GB 的 U 盘，电脑里只显示 28.6GB？ | 雨林说</title>
+<meta name="keywords" content="U盘, 计算机">
+<meta name="description" content="最近格式化 U 盘时，遇到一个困惑：明明包装上写着 32GB，为什么插到电脑里只剩下 28GB 多？
+经过一番研究，发现不是 U 盘坏了，而是一个一直被我被忽略的知识点：厂商标注容量和操作系统显示容量，用的不是同一套计算方式。
+一、厂商说的 GB，是十进制的 GB
+存储设备厂商通常按照国际单位制来标注容量。
+也就是说：
+
+1 KB = 1000 B
+1 MB = 1000 KB
+1 GB = 1000 MB
+所以 1 GB = 1,000,000,000 字节
+
+按照这个算法，一个标称 32GB 的 U 盘，大约就是：
+
+32 × 1,000,000,000 = 32,000,000,000 字节
+
+这种算法并不是厂商自己乱编的。国际单位制里的 kilo、mega、giga 本来就是按照 10 的幂来定义的，比如 kilo 表示 1000，giga 表示 10⁹。NIST 对 SI 前缀的说明也是这个口径。
+二、电脑显示容量时，常常按二进制来算
+问题出在计算机世界里，很多东西天然围绕 2 的幂 运作。
+在二进制体系下：
+
+1 KiB = 1024 B
+1 MiB = 1024 KiB
+1 GiB = 1024 MiB
+所以 1 GiB = 1,073,741,824 字节
+
+IEC 专门提出过 KiB、MiB、GiB 这套“二进制前缀”，就是为了解决 KB、MB、GB 在十进制和二进制之间容易混淆的问题。NIST 也明确区分了 1 GB = 10⁹ 字节，而 1 GiB = 2³⁰ 字节。">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.yulin.ltd/posts/2026/04/%E4%B8%BA%E4%BB%80%E4%B9%88-32gb-%E7%9A%84-u-%E7%9B%98%E7%94%B5%E8%84%91%E9%87%8C%E5%8F%AA%E6%98%BE%E7%A4%BA-28.6gb/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fe7dab94ca0a6f7ed09114b2c9f56328cb495a350f822e0c5214132046e47c6b.css" integrity="sha256-/n2rlMoKb37QkRSyyfVjKMtJWjUPgi4MUhQTIEbkfGs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.yulin.ltd/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.yulin.ltd/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.yulin.ltd/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.yulin.ltd/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.yulin.ltd/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.yulin.ltd/posts/2026/04/%E4%B8%BA%E4%BB%80%E4%B9%88-32gb-%E7%9A%84-u-%E7%9B%98%E7%94%B5%E8%84%91%E9%87%8C%E5%8F%AA%E6%98%BE%E7%A4%BA-28.6gb/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://blog.yulin.ltd/posts/2026/04/%E4%B8%BA%E4%BB%80%E4%B9%88-32gb-%E7%9A%84-u-%E7%9B%98%E7%94%B5%E8%84%91%E9%87%8C%E5%8F%AA%E6%98%BE%E7%A4%BA-28.6gb/">
+  <meta property="og:site_name" content="雨林说">
+  <meta property="og:title" content="为什么 32GB 的 U 盘，电脑里只显示 28.6GB？">
+  <meta property="og:description" content="最近格式化 U 盘时，遇到一个困惑：明明包装上写着 32GB，为什么插到电脑里只剩下 28GB 多？
+经过一番研究，发现不是 U 盘坏了，而是一个一直被我被忽略的知识点：厂商标注容量和操作系统显示容量，用的不是同一套计算方式。
+一、厂商说的 GB，是十进制的 GB 存储设备厂商通常按照国际单位制来标注容量。
+也就是说：
+1 KB = 1000 B 1 MB = 1000 KB 1 GB = 1000 MB 所以 1 GB = 1,000,000,000 字节 按照这个算法，一个标称 32GB 的 U 盘，大约就是：
+32 × 1,000,000,000 = 32,000,000,000 字节
+这种算法并不是厂商自己乱编的。国际单位制里的 kilo、mega、giga 本来就是按照 10 的幂来定义的，比如 kilo 表示 1000，giga 表示 10⁹。NIST 对 SI 前缀的说明也是这个口径。
+二、电脑显示容量时，常常按二进制来算 问题出在计算机世界里，很多东西天然围绕 2 的幂 运作。
+在二进制体系下：
+1 KiB = 1024 B 1 MiB = 1024 KiB 1 GiB = 1024 MiB 所以 1 GiB = 1,073,741,824 字节 IEC 专门提出过 KiB、MiB、GiB 这套“二进制前缀”，就是为了解决 KB、MB、GB 在十进制和二进制之间容易混淆的问题。NIST 也明确区分了 1 GB = 10⁹ 字节，而 1 GiB = 2³⁰ 字节。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-28T00:00:00+00:00">
+    <meta property="article:tag" content="U盘">
+    <meta property="article:tag" content="计算机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为什么 32GB 的 U 盘，电脑里只显示 28.6GB？">
+<meta name="twitter:description" content="最近格式化 U 盘时，遇到一个困惑：明明包装上写着 32GB，为什么插到电脑里只剩下 28GB 多？
+经过一番研究，发现不是 U 盘坏了，而是一个一直被我被忽略的知识点：厂商标注容量和操作系统显示容量，用的不是同一套计算方式。
+一、厂商说的 GB，是十进制的 GB
+存储设备厂商通常按照国际单位制来标注容量。
+也就是说：
+
+1 KB = 1000 B
+1 MB = 1000 KB
+1 GB = 1000 MB
+所以 1 GB = 1,000,000,000 字节
+
+按照这个算法，一个标称 32GB 的 U 盘，大约就是：
+
+32 × 1,000,000,000 = 32,000,000,000 字节
+
+这种算法并不是厂商自己乱编的。国际单位制里的 kilo、mega、giga 本来就是按照 10 的幂来定义的，比如 kilo 表示 1000，giga 表示 10⁹。NIST 对 SI 前缀的说明也是这个口径。
+二、电脑显示容量时，常常按二进制来算
+问题出在计算机世界里，很多东西天然围绕 2 的幂 运作。
+在二进制体系下：
+
+1 KiB = 1024 B
+1 MiB = 1024 KiB
+1 GiB = 1024 MiB
+所以 1 GiB = 1,073,741,824 字节
+
+IEC 专门提出过 KiB、MiB、GiB 这套“二进制前缀”，就是为了解决 KB、MB、GB 在十进制和二进制之间容易混淆的问题。NIST 也明确区分了 1 GB = 10⁹ 字节，而 1 GiB = 2³⁰ 字节。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.yulin.ltd/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "为什么 32GB 的 U 盘，电脑里只显示 28.6GB？",
+      "item": "https://blog.yulin.ltd/posts/2026/04/%E4%B8%BA%E4%BB%80%E4%B9%88-32gb-%E7%9A%84-u-%E7%9B%98%E7%94%B5%E8%84%91%E9%87%8C%E5%8F%AA%E6%98%BE%E7%A4%BA-28.6gb/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "为什么 32GB 的 U 盘，电脑里只显示 28.6GB？",
+  "name": "为什么 32GB 的 U 盘，电脑里只显示 28.6GB？",
+  "description": "最近格式化 U 盘时，遇到一个困惑：明明包装上写着 32GB，为什么插到电脑里只剩下 28GB 多？\n经过一番研究，发现不是 U 盘坏了，而是一个一直被我被忽略的知识点：厂商标注容量和操作系统显示容量，用的不是同一套计算方式。\n一、厂商说的 GB，是十进制的 GB 存储设备厂商通常按照国际单位制来标注容量。\n也就是说：\n1 KB = 1000 B 1 MB = 1000 KB 1 GB = 1000 MB 所以 1 GB = 1,000,000,000 字节 按照这个算法，一个标称 32GB 的 U 盘，大约就是：\n32 × 1,000,000,000 = 32,000,000,000 字节\n这种算法并不是厂商自己乱编的。国际单位制里的 kilo、mega、giga 本来就是按照 10 的幂来定义的，比如 kilo 表示 1000，giga 表示 10⁹。NIST 对 SI 前缀的说明也是这个口径。\n二、电脑显示容量时，常常按二进制来算 问题出在计算机世界里，很多东西天然围绕 2 的幂 运作。\n在二进制体系下：\n1 KiB = 1024 B 1 MiB = 1024 KiB 1 GiB = 1024 MiB 所以 1 GiB = 1,073,741,824 字节 IEC 专门提出过 KiB、MiB、GiB 这套“二进制前缀”，就是为了解决 KB、MB、GB 在十进制和二进制之间容易混淆的问题。NIST 也明确区分了 1 GB = 10⁹ 字节，而 1 GiB = 2³⁰ 字节。\n",
+  "keywords": [
+    "U盘", "计算机"
+  ],
+  "articleBody": "最近格式化 U 盘时，遇到一个困惑：明明包装上写着 32GB，为什么插到电脑里只剩下 28GB 多？\n经过一番研究，发现不是 U 盘坏了，而是一个一直被我被忽略的知识点：厂商标注容量和操作系统显示容量，用的不是同一套计算方式。\n一、厂商说的 GB，是十进制的 GB 存储设备厂商通常按照国际单位制来标注容量。\n也就是说：\n1 KB = 1000 B 1 MB = 1000 KB 1 GB = 1000 MB 所以 1 GB = 1,000,000,000 字节 按照这个算法，一个标称 32GB 的 U 盘，大约就是：\n32 × 1,000,000,000 = 32,000,000,000 字节\n这种算法并不是厂商自己乱编的。国际单位制里的 kilo、mega、giga 本来就是按照 10 的幂来定义的，比如 kilo 表示 1000，giga 表示 10⁹。NIST 对 SI 前缀的说明也是这个口径。\n二、电脑显示容量时，常常按二进制来算 问题出在计算机世界里，很多东西天然围绕 2 的幂 运作。\n在二进制体系下：\n1 KiB = 1024 B 1 MiB = 1024 KiB 1 GiB = 1024 MiB 所以 1 GiB = 1,073,741,824 字节 IEC 专门提出过 KiB、MiB、GiB 这套“二进制前缀”，就是为了解决 KB、MB、GB 在十进制和二进制之间容易混淆的问题。NIST 也明确区分了 1 GB = 10⁹ 字节，而 1 GiB = 2³⁰ 字节。\n但现实中，很多系统界面并不会严格显示 “GiB”，而是仍然写成 “GB”。于是用户看到的就是：包装上写 32GB，电脑里却显示 28GB 多。\n三、32GB 为什么会变成大约 29GB？ 我们可以直接算一下。\n厂商说的 32GB 是：\n32,000,000,000 字节\n如果电脑按 1 GiB = 1,073,741,824 字节来换算：\n32,000,000,000 ÷ 1,073,741,824 ≈ 29.8 GiB\n也就是说，一个标称 32GB 的 U 盘，在电脑里显示成 约 29GB，本来就是正常现象。\n如果你看到的是 28.6GB，也仍然常见。因为 U 盘除了这个“单位换算差异”之外，还可能有一部分空间被用于文件系统、固件、启动结构、地址表、坏块替换、备份区等。SanDisk 的支持说明中也提到，部分驱动器会有一部分总容量不可用于数据存储，原因包括固件、启动结构、地址表空间以及用于闪存错误时的备份数据等。\n四、这是不是厂商在“玩文字游戏”？ 可以说有一点“看起来更好看”的商业效果，但严格来说，它不完全是欺骗。\n厂商使用的是十进制算法，这符合国际单位制，也更容易对普通消费者解释：\n1GB = 10 亿字节\n而计算机系统长期使用二进制算法，是因为计算机底层就是由 0 和 1 组成的，很多存储、寻址和内存管理都天然和 2 的幂相关。\n所以真正的问题不是“谁错了”，而是：\n同一个 GB，在厂商、操作系统、用户理解中，可能指的不是同一个东西。\n这就是混乱的来源。\n五、不同系统显示方式也不完全一样 有些系统后来为了减少这种混乱，已经改成更接近厂商标注的十进制显示方式。比如 Apple 的官方说明中提到，较新的 iOS 和 macOS 会用十进制方式报告存储容量，也就是 1GB = 10 亿字节；而部分较旧系统或应用则可能使用二进制方式。\n所以同一块存储设备，在不同系统里看到的容量，也可能略有差异。\n六、如何判断自己的 U 盘是否正常？ 可以用一个简单标准：\n标称容量 电脑里常见显示 16GB 约 14GB 多 32GB 约 28GB～29GB 多 64GB 约 57GB～59GB 多 128GB 约 115GB～119GB 多 所以，如果一个 32GB U 盘显示 28.6GB，通常属于正常范围。但如果只显示几 GB，或者容量明显异常，那就可能是分区表没恢复好、启动盘残留分区、U 盘故障，甚至是假容量盘。\n32GB 的 U 盘在电脑里显示 28GB 多，不是容量凭空消失了，而是厂商用十进制标注，操作系统常按二进制换算，再加上文件系统和闪存管理占用了一部分空间。\n这个小现象背后，其实藏着一个很典型的计算机常识：我们平时看到的“容量”，并不只是物理空间本身，还取决于谁在计算、用什么单位计算、系统如何展示。\n",
+  "wordCount" : "209",
+  "inLanguage": "en",
+  "datePublished": "2026-04-28T00:00:00Z",
+  "dateModified": "2026-04-28T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.yulin.ltd/posts/2026/04/%E4%B8%BA%E4%BB%80%E4%B9%88-32gb-%E7%9A%84-u-%E7%9B%98%E7%94%B5%E8%84%91%E9%87%8C%E5%8F%AA%E6%98%BE%E7%A4%BA-28.6gb/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "雨林说",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.yulin.ltd/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.yulin.ltd/" accesskey="h" title="雨林说 (Alt + H)">雨林说</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.yulin.ltd/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.yulin.ltd/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.yulin.ltd/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.yulin.ltd/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.yulin.ltd/">Home</a>&nbsp;»&nbsp;<a href="https://blog.yulin.ltd/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      为什么 32GB 的 U 盘，电脑里只显示 28.6GB？
+    </h1>
+    <div class="post-meta"><span title='2026-04-28 00:00:00 +0000 UTC'>April 28, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>最近格式化 U 盘时，遇到一个困惑：明明包装上写着 <strong>32GB</strong>，为什么插到电脑里只剩下 <strong>28GB 多</strong>？</p>
+<p>经过一番研究，发现不是 U 盘坏了，而是一个一直被我被忽略的知识点：<strong>厂商标注容量和操作系统显示容量，用的不是同一套计算方式。</strong></p>
+<h2 id="一厂商说的-gb是十进制的-gb">一、厂商说的 GB，是十进制的 GB<a hidden class="anchor" aria-hidden="true" href="#一厂商说的-gb是十进制的-gb">#</a></h2>
+<p>存储设备厂商通常按照国际单位制来标注容量。</p>
+<p>也就是说：</p>
+<ul>
+<li>1 KB = 1000 B</li>
+<li>1 MB = 1000 KB</li>
+<li>1 GB = 1000 MB</li>
+<li>所以 1 GB = 1,000,000,000 字节</li>
+</ul>
+<p>按照这个算法，一个标称 <strong>32GB</strong> 的 U 盘，大约就是：</p>
+<blockquote>
+<p>32 × 1,000,000,000 = 32,000,000,000 字节</p>
+</blockquote>
+<p>这种算法并不是厂商自己乱编的。国际单位制里的 kilo、mega、giga 本来就是按照 10 的幂来定义的，比如 kilo 表示 1000，giga 表示 10⁹。NIST 对 SI 前缀的说明也是这个口径。</p>
+<h2 id="二电脑显示容量时常常按二进制来算">二、电脑显示容量时，常常按二进制来算<a hidden class="anchor" aria-hidden="true" href="#二电脑显示容量时常常按二进制来算">#</a></h2>
+<p>问题出在计算机世界里，很多东西天然围绕 <strong>2 的幂</strong> 运作。</p>
+<p>在二进制体系下：</p>
+<ul>
+<li>1 KiB = 1024 B</li>
+<li>1 MiB = 1024 KiB</li>
+<li>1 GiB = 1024 MiB</li>
+<li>所以 1 GiB = 1,073,741,824 字节</li>
+</ul>
+<p>IEC 专门提出过 KiB、MiB、GiB 这套“二进制前缀”，就是为了解决 KB、MB、GB 在十进制和二进制之间容易混淆的问题。NIST 也明确区分了 1 GB = 10⁹ 字节，而 1 GiB = 2³⁰ 字节。</p>
+<p>但现实中，很多系统界面并不会严格显示 “GiB”，而是仍然写成 “GB”。于是用户看到的就是：包装上写 32GB，电脑里却显示 28GB 多。</p>
+<h2 id="三32gb-为什么会变成大约-29gb">三、32GB 为什么会变成大约 29GB？<a hidden class="anchor" aria-hidden="true" href="#三32gb-为什么会变成大约-29gb">#</a></h2>
+<p>我们可以直接算一下。</p>
+<p>厂商说的 32GB 是：</p>
+<blockquote>
+<p>32,000,000,000 字节</p>
+</blockquote>
+<p>如果电脑按 1 GiB = 1,073,741,824 字节来换算：</p>
+<blockquote>
+<p>32,000,000,000 ÷ 1,073,741,824 ≈ 29.8 GiB</p>
+</blockquote>
+<p>也就是说，一个标称 32GB 的 U 盘，在电脑里显示成 <strong>约 29GB</strong>，本来就是正常现象。</p>
+<p>如果你看到的是 <strong>28.6GB</strong>，也仍然常见。因为 U 盘除了这个“单位换算差异”之外，还可能有一部分空间被用于文件系统、固件、启动结构、地址表、坏块替换、备份区等。SanDisk 的支持说明中也提到，部分驱动器会有一部分总容量不可用于数据存储，原因包括固件、启动结构、地址表空间以及用于闪存错误时的备份数据等。</p>
+<h2 id="四这是不是厂商在玩文字游戏">四、这是不是厂商在“玩文字游戏”？<a hidden class="anchor" aria-hidden="true" href="#四这是不是厂商在玩文字游戏">#</a></h2>
+<p>可以说有一点“看起来更好看”的商业效果，但严格来说，它不完全是欺骗。</p>
+<p>厂商使用的是十进制算法，这符合国际单位制，也更容易对普通消费者解释：</p>
+<blockquote>
+<p>1GB = 10 亿字节</p>
+</blockquote>
+<p>而计算机系统长期使用二进制算法，是因为计算机底层就是由 0 和 1 组成的，很多存储、寻址和内存管理都天然和 2 的幂相关。</p>
+<p>所以真正的问题不是“谁错了”，而是：</p>
+<blockquote>
+<p><strong>同一个 GB，在厂商、操作系统、用户理解中，可能指的不是同一个东西。</strong></p>
+</blockquote>
+<p>这就是混乱的来源。</p>
+<h2 id="五不同系统显示方式也不完全一样">五、不同系统显示方式也不完全一样<a hidden class="anchor" aria-hidden="true" href="#五不同系统显示方式也不完全一样">#</a></h2>
+<p>有些系统后来为了减少这种混乱，已经改成更接近厂商标注的十进制显示方式。比如 Apple 的官方说明中提到，较新的 iOS 和 macOS 会用十进制方式报告存储容量，也就是 1GB = 10 亿字节；而部分较旧系统或应用则可能使用二进制方式。</p>
+<p>所以同一块存储设备，在不同系统里看到的容量，也可能略有差异。</p>
+<h2 id="六如何判断自己的-u-盘是否正常">六、如何判断自己的 U 盘是否正常？<a hidden class="anchor" aria-hidden="true" href="#六如何判断自己的-u-盘是否正常">#</a></h2>
+<p>可以用一个简单标准：</p>
+<table>
+  <thead>
+      <tr>
+          <th>标称容量</th>
+          <th>电脑里常见显示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>16GB</td>
+          <td>约 14GB 多</td>
+      </tr>
+      <tr>
+          <td>32GB</td>
+          <td>约 28GB～29GB 多</td>
+      </tr>
+      <tr>
+          <td>64GB</td>
+          <td>约 57GB～59GB 多</td>
+      </tr>
+      <tr>
+          <td>128GB</td>
+          <td>约 115GB～119GB 多</td>
+      </tr>
+  </tbody>
+</table>
+<p>所以，如果一个 32GB U 盘显示 <strong>28.6GB</strong>，通常属于正常范围。但如果只显示几 GB，或者容量明显异常，那就可能是分区表没恢复好、启动盘残留分区、U 盘故障，甚至是假容量盘。</p>
+<blockquote>
+<p><strong>32GB 的 U 盘在电脑里显示 28GB 多，不是容量凭空消失了，而是厂商用十进制标注，操作系统常按二进制换算，再加上文件系统和闪存管理占用了一部分空间。</strong></p>
+</blockquote>
+<p>这个小现象背后，其实藏着一个很典型的计算机常识：<strong>我们平时看到的“容量”，并不只是物理空间本身，还取决于谁在计算、用什么单位计算、系统如何展示。</strong></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.yulin.ltd/tags/u%E7%9B%98/">U盘</a></li>
+      <li><a href="https://blog.yulin.ltd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <button type="button" class="wechat-share-btn" aria-label="分享到微信"
+            onclick="document.getElementById('wechat-qr-modal').style.display='flex'">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="30px" width="30px" fill="currentColor">
+                <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.328.328 0 0 0 .186-.059l2.035-1.18a.896.896 0 0 1 .48-.144c.085 0 .17.01.254.029 1.019.26 2.099.4 3.215.4h.208c-.057-.327-.085-.658-.085-.995 0-3.753 3.589-6.793 8.015-6.793h.208c-.535-3.773-4.31-6.803-8.892-6.803zm-2.55 3.67c.577 0 1.044.466 1.044 1.044s-.467 1.044-1.044 1.044c-.578 0-1.044-.466-1.044-1.044s.466-1.044 1.044-1.044zm5.101 0c.577 0 1.044.466 1.044 1.044s-.467 1.044-1.044 1.044c-.578 0-1.044-.466-1.044-1.044s.466-1.044 1.044-1.044zM24 14.48c0-3.484-3.317-6.305-7.395-6.305-4.077 0-7.394 2.821-7.394 6.305 0 3.483 3.317 6.304 7.394 6.304.895 0 1.757-.13 2.557-.366a.635.635 0 0 1 .198-.031.687.687 0 0 1 .37.107l1.616.937a.272.272 0 0 0 .148.05.233.233 0 0 0 .232-.232c0-.058-.023-.113-.037-.17l-.31-1.18a.477.477 0 0 1 .169-.527C23.087 18.331 24 16.5 24 14.48zm-9.718-.573c-.46 0-.832-.372-.832-.831 0-.46.372-.832.832-.832.46 0 .832.372.832.832 0 .46-.372.831-.832.831zm4.647 0c-.46 0-.832-.372-.832-.831 0-.46.372-.832.832-.832.46 0 .831.372.831.832 0 .46-.371.831-.831.831z"/>
+            </svg>
+        </button>
+        <div id="wechat-qr-modal" class="wechat-qr-overlay"
+            onclick="if(event.target===this)this.style.display='none'">
+            <div class="wechat-qr-card">
+                <p class="wechat-qr-title">分享到微信</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fblog.yulin.ltd%2Fposts%2F2026%2F04%2F%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588-32gb-%25E7%259A%2584-u-%25E7%259B%2598%25E7%2594%25B5%25E8%2584%2591%25E9%2587%258C%25E5%258F%25AA%25E6%2598%25BE%25E7%25A4%25BA-28.6gb%2F"
+                     alt="微信分享二维码" width="200" height="200" loading="lazy">
+                <p class="wechat-qr-hint">打开微信，扫描二维码<br>分享给朋友或群</p>
+                <button class="wechat-qr-close"
+                    onclick="document.getElementById('wechat-qr-modal').style.display='none'">关闭</button>
+            </div>
+        </div>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.yulin.ltd/">雨林说</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
