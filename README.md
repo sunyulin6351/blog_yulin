@@ -30,8 +30,8 @@
 
 ```bash
 # 克隆仓库（含子模块）
-git clone --recurse-submodules https://github.com/sunyulin6351/sunyulin6351.github.io.git
-cd sunyulin6351.github.io
+git clone --recurse-submodules https://github.com/sunyulin6351/blog_yulin.git
+cd blog_yulin
 
 # 启动本地预览服务器
 hugo server -D

@@ -1,5 +1,5 @@
 baseURL = "https://blog.yulin.ltd/"
-languageCode = "zh-cn"
+locale = "zh-CN"
 title = "雨林说"
 theme = "PaperMod"
 
@@ -36,7 +36,7 @@ disableKinds = ["RSS"]
   comments = true
 
   [params.giscus]
-    repo = "sunyulin6351/sunyulin6351.github.io"
+    repo = "sunyulin6351/blog_yulin"
     repoId = "R_kgDORHv4Wg"
     category = "General"
     categoryId = "DIC_kwDORHv4Ws4C3Ktx"
