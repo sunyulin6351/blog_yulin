@@ -224,3 +224,67 @@ body::after {
   }
 
 }
+
+/* =============================
+   正文表格（暗色玻璃质感）
+   ============================= */
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) {
+  display: table;
+  width: 100%;
+  margin: 1.6rem 0 2rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(20, 20, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) th,
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
+  min-width: 0;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: top;
+  text-align: left;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) th {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tr:last-child td {
+  border-bottom: none;
+}
+
+/* 圆角贴合单元格，补齐最后一行 */
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .post-content table:not(.highlighttable, .highlight table, .gist .highlight) {
+    font-size: 14px;
+  }
+
+  .post-content table:not(.highlighttable, .highlight table, .gist .highlight) th,
+  .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
+    padding: 0.55rem 0.7rem;
+  }
+}
