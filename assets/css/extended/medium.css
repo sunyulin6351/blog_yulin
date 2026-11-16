@@ -288,3 +288,14 @@ body::after {
     padding: 0.55rem 0.7rem;
   }
 }
+
+/* =============================
+   分类 / 标签页：说明文字与标签列表左对齐
+   ============================= */
+.post-content.tax-intro {
+  max-width: 100%;
+}
+
+.post-content.tax-intro ul {
+  margin-bottom: 1.2rem;
+}
