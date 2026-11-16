@@ -1,0 +1,2 @@
+# Hugo 构建产物，由 GitHub Actions 在部署时生成，不再入库
+/public/
