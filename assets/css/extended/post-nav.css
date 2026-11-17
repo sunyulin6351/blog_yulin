@@ -1,0 +1,115 @@
+/* 文章底部上一篇/下一篇：编辑式双栏，不再使用整块卡片 */
+.paginav {
+  display: flex;
+  margin: 1.5rem 0 1rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  line-height: 1.5;
+}
+
+.paginav a {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: auto;
+  padding: 1rem 1.1rem;
+  border-radius: 8px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.paginav a:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.paginav a:hover .paginav-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 去掉主题自带的 span 下划线效果，统一由标题承担 hover 反馈 */
+.paginav span:hover:not(.title) {
+  box-shadow: none;
+}
+
+.paginav a + a {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.paginav .prev {
+  width: auto;
+  text-align: left;
+}
+
+.paginav .next {
+  width: auto;
+  margin-inline-start: 0;
+  text-align: right;
+}
+
+.paginav-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  color: var(--secondary);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.paginav .next .paginav-label {
+  justify-content: flex-end;
+}
+
+.paginav-arrow {
+  transition: transform 0.15s;
+}
+
+.paginav .prev:hover .paginav-arrow {
+  transform: translateX(-3px);
+}
+
+.paginav .next:hover .paginav-arrow {
+  transform: translateX(3px);
+}
+
+.paginav-title {
+  color: var(--primary);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .paginav {
+    flex-direction: column;
+    margin: 1.25rem 0 0.75rem;
+  }
+
+  .paginav a {
+    padding: 0.85rem 0.2rem;
+  }
+
+  .paginav a + a {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 0;
+  }
+
+  .paginav .next {
+    margin-inline-start: 0;
+    text-align: left;
+  }
+
+  .paginav .next .paginav-label {
+    justify-content: flex-start;
+  }
+
+  .paginav .next .paginav-title {
+    text-align: left;
+  }
+}

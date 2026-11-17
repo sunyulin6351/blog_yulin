@@ -1,0 +1,17 @@
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- if and (gt (len $pages) 1) (in $pages . ) }}
+<nav class="paginav" aria-label="文章导航">
+  {{- with $pages.Next . }}
+  <a class="prev" href="{{ .RelPermalink }}">
+    <span class="paginav-label"><span class="paginav-arrow" aria-hidden="true">←</span> 上一篇</span>
+    <span class="paginav-title">{{ .Title }}</span>
+  </a>
+  {{- end }}
+  {{- with $pages.Prev . }}
+  <a class="next" href="{{ .RelPermalink }}">
+    <span class="paginav-label">下一篇 <span class="paginav-arrow" aria-hidden="true">→</span></span>
+    <span class="paginav-title">{{ .Title }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}
