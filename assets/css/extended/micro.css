@@ -1,10 +1,10 @@
 .micro-timeline {
   max-width: 720px;
-  margin: auto;
+  margin: 1.5rem auto 3rem;
 }
 
 .micro-post {
-  padding: 16px;
+  padding: 16px 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -17,4 +17,14 @@
 .micro-content {
   font-size: 16px;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .micro-timeline {
+    margin: 1rem auto 2rem;
+  }
+
+  .micro-post {
+    padding: 14px 0;
+  }
 }

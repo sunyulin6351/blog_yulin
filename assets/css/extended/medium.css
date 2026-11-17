@@ -129,6 +129,34 @@ body::after {
 }
 
 /* ============================= */
+/*  正文阅读面板                   */
+/*  让正文、微记录、搜索从背景图中  */
+/*  脱离出来，形成稳定的阅读面。    */
+/* ============================= */
+.post-single,
+.micro-timeline,
+#searchbox {
+  background: rgba(15, 15, 17, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  padding: 1.75rem 2.5rem 2rem;
+}
+
+.post-single {
+  margin: 0 auto 3rem;
+}
+
+#searchbox {
+  margin: 0 auto 3rem;
+}
+
+/* 面板已经提供上边距，避免标题被推得过低 */
+.post-single .post-header {
+  margin-top: 0;
+}
+
+/* ============================= */
 /*  微信分享二维码弹窗            */
 /* ============================= */
 
@@ -221,6 +249,15 @@ body::after {
   /* 首页卡片标题 */
   .entry-header h2 {
     font-size: 1.1rem;
+  }
+
+  /* 阅读面板：收窄内边距，避免手机上正文过窄 */
+  .post-single,
+  .micro-timeline,
+  #searchbox {
+    padding: 1.25rem 1.1rem;
+    border-radius: 12px;
+    margin: 0 auto 2rem;
   }
 
 }
