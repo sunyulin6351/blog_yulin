@@ -196,13 +196,21 @@ body::after {
 }
 
 .wechat-qr-overlay {
-    display: none;
+    display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 9999;
     align-items: center;
     justify-content: center;
+}
+
+.wechat-qr-overlay[hidden] {
+    display: none;
+}
+
+body.wechat-modal-open {
+    overflow: hidden;
 }
 
 .wechat-qr-card {

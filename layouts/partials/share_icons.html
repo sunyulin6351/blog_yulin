@@ -98,20 +98,19 @@
     {{- if (cond ($custom) (in $ShareButtons "wechat") (false)) }}
     <li>
         <button type="button" class="wechat-share-btn share-icon-btn" title="分享到微信" aria-label="分享到微信"
-            onclick="document.getElementById('wechat-qr-modal').style.display='flex'">
+            aria-haspopup="dialog" aria-controls="wechat-qr-modal" aria-expanded="false" data-wechat-open>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
                 <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.328.328 0 0 0 .186-.059l2.035-1.18a.896.896 0 0 1 .48-.144c.085 0 .17.01.254.029 1.019.26 2.099.4 3.215.4h.208c-.057-.327-.085-.658-.085-.995 0-3.753 3.589-6.793 8.015-6.793h.208c-.535-3.773-4.31-6.803-8.892-6.803zm-2.55 3.67c.577 0 1.044.466 1.044 1.044s-.467 1.044-1.044 1.044c-.578 0-1.044-.466-1.044-1.044s.466-1.044 1.044-1.044zm5.101 0c.577 0 1.044.466 1.044 1.044s-.467 1.044-1.044 1.044c-.578 0-1.044-.466-1.044-1.044s.466-1.044 1.044-1.044zM24 14.48c0-3.484-3.317-6.305-7.395-6.305-4.077 0-7.394 2.821-7.394 6.305 0 3.483 3.317 6.304 7.394 6.304.895 0 1.757-.13 2.557-.366a.635.635 0 0 1 .198-.031.687.687 0 0 1 .37.107l1.616.937a.272.272 0 0 0 .148.05.233.233 0 0 0 .232-.232c0-.058-.023-.113-.037-.17l-.31-1.18a.477.477 0 0 1 .169-.527C23.087 18.331 24 16.5 24 14.48zm-9.718-.573c-.46 0-.832-.372-.832-.831 0-.46.372-.832.832-.832.46 0 .832.372.832.832 0 .46-.372.831-.832.831zm4.647 0c-.46 0-.832-.372-.832-.831 0-.46.372-.832.832-.832.46 0 .831.372.831.832 0 .46-.371.831-.831.831z"/>
             </svg>
         </button>
-        <div id="wechat-qr-modal" class="wechat-qr-overlay"
-            onclick="if(event.target===this)this.style.display='none'">
+        <div id="wechat-qr-modal" class="wechat-qr-overlay" role="dialog" aria-modal="true"
+            aria-labelledby="wechat-qr-title" aria-describedby="wechat-qr-hint" hidden>
             <div class="wechat-qr-card">
-                <p class="wechat-qr-title">分享到微信</p>
+                <p class="wechat-qr-title" id="wechat-qr-title">分享到微信</p>
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ $pageurl | urlquery }}"
-                     alt="微信分享二维码" width="200" height="200" loading="lazy">
-                <p class="wechat-qr-hint">打开微信，扫描二维码<br>分享给朋友或群</p>
-                <button class="wechat-qr-close"
-                    onclick="document.getElementById('wechat-qr-modal').style.display='none'">关闭</button>
+                     alt="微信分享二维码" width="200" height="200" loading="lazy" referrerpolicy="no-referrer">
+                <p class="wechat-qr-hint" id="wechat-qr-hint">打开微信，扫描二维码<br>分享给朋友或群</p>
+                <button type="button" class="wechat-qr-close" data-wechat-close>关闭</button>
             </div>
         </div>
     </li>

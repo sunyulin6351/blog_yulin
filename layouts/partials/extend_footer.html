@@ -74,6 +74,136 @@
     syncSearchEmpty();
   }
 
+  const wechatModal = document.querySelector('#wechat-qr-modal');
+  const wechatOpen = document.querySelector('[data-wechat-open]');
+  const wechatClose = document.querySelector('[data-wechat-close]');
+
+  if (wechatModal && wechatOpen && wechatClose) {
+    let lastFocused = null;
+
+    const setWechatOpen = function (open) {
+      if (open) {
+        lastFocused = document.activeElement;
+        wechatModal.hidden = false;
+        document.body.classList.add('wechat-modal-open');
+        wechatOpen.setAttribute('aria-expanded', 'true');
+        wechatClose.focus();
+      } else {
+        wechatModal.hidden = true;
+        document.body.classList.remove('wechat-modal-open');
+        wechatOpen.setAttribute('aria-expanded', 'false');
+        if (lastFocused && typeof lastFocused.focus === 'function') {
+          lastFocused.focus();
+        } else {
+          wechatOpen.focus();
+        }
+      }
+    };
+
+    wechatOpen.addEventListener('click', function () {
+      setWechatOpen(true);
+    });
+
+    wechatClose.addEventListener('click', function () {
+      setWechatOpen(false);
+    });
+
+    wechatModal.addEventListener('click', function (event) {
+      if (event.target === wechatModal) {
+        setWechatOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (wechatModal.hidden) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setWechatOpen(false);
+        return;
+      }
+
+      if (event.key !== 'Tab') {
+        return;
+      }
+
+      const focusable = Array.from(wechatModal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )).filter(function (element) {
+        return !element.disabled && element.offsetParent !== null;
+      });
+
+      if (!focusable.length) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
+  const giscusContainer = document.querySelector('#giscus-container');
+
+  if (giscusContainer) {
+    const loadGiscus = function () {
+      if (giscusContainer.dataset.loaded === 'true') {
+        return;
+      }
+      giscusContainer.dataset.loaded = 'true';
+
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.setAttribute('data-loading', 'lazy');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-input-position', 'bottom');
+
+      const attributes = {
+        repo: 'data-repo',
+        repoId: 'data-repo-id',
+        category: 'data-category',
+        categoryId: 'data-category-id',
+        mapping: 'data-mapping',
+        reactionsEnabled: 'data-reactions-enabled',
+        emitMetadata: 'data-emit-metadata',
+        theme: 'data-theme',
+        lang: 'data-lang'
+      };
+
+      Object.keys(attributes).forEach(function (key) {
+        const value = giscusContainer.dataset[key];
+        if (value) {
+          script.setAttribute(attributes[key], value);
+        }
+      });
+
+      giscusContainer.appendChild(script);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const giscusObserver = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          loadGiscus();
+          giscusObserver.disconnect();
+        }
+      }, { rootMargin: '600px 0px' });
+      giscusObserver.observe(giscusContainer);
+    } else {
+      loadGiscus();
+    }
+  }
+
   const nativeButtons = document.querySelectorAll('.share-native-btn');
   if (!navigator.share) {
     nativeButtons.forEach(function (btn) {

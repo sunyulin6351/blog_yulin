@@ -1,0 +1,23 @@
+{{- with site.Params.giscus }}
+<section class="comments" id="comments" aria-labelledby="comments-title">
+  <h2 class="comments-title" id="comments-title">留言</h2>
+  <p class="comments-subtitle">使用 GitHub 账号参与讨论。</p>
+  <div id="giscus-container" class="giscus"
+    data-repo="{{ .repo }}"
+    data-repo-id="{{ .repoId }}"
+    data-category="{{ .category }}"
+    data-category-id="{{ .categoryId }}"
+    data-mapping="{{ .mapping | default "pathname" }}"
+    data-reactions-enabled="{{ .reactionsEnabled | default "1" }}"
+    data-emit-metadata="{{ .emitMetadata | default "0" }}"
+    data-theme="{{ .theme | default "dark" }}"
+    data-lang="{{ .lang | default "zh-CN" }}">
+  </div>
+  <noscript>
+    <p>评论需要 JavaScript。也可以直接到
+      <a href="https://github.com/{{ .repo }}/discussions" rel="noopener noreferrer" target="_blank">GitHub Discussions</a>
+      参与讨论。
+    </p>
+  </noscript>
+</section>
+{{- end }}

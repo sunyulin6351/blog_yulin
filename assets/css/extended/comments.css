@@ -1,0 +1,32 @@
+/* 留言区 */
+.comments {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comments-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.comments-subtitle {
+  margin: 0 0 1rem;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+#giscus-container {
+  min-height: 160px;
+}
+
+#giscus-container .giscus-frame {
+  width: 100%;
+  border: 0;
+}
+
+.comments noscript p {
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
