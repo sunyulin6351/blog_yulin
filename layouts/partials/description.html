@@ -1,0 +1,13 @@
+{{- /* 计算页面 description：显式 description 优先，否则用摘要并截断为 100 字。 */ -}}
+{{- $desc := "" -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- if or .IsPage .IsSection -}}
+    {{- $desc = .Summary | default (printf "%s - %s" .Title site.Title) -}}
+    {{- $desc = $desc | plainify | htmlUnescape | replaceRE `\s+` " " | chomp | truncate 100 -}}
+  {{- else -}}
+    {{- $desc = site.Params.description -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc | plainify | htmlUnescape | replaceRE `\s+` " " | chomp -}}

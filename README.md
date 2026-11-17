@@ -59,8 +59,11 @@ date: 2026-01-01
 draft: false
 categories: ["分类名"]
 tags: ["标签1", "标签2"]
+description: "一句话说明这篇文章解决什么问题（建议 60–100 字）"
 ---
 ```
+
+`description` 会用于 meta description 和社交分享；不写时模板会自动截取正文摘要的前 100 字。
 
 ## 目录结构
 

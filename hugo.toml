@@ -20,7 +20,7 @@ disableKinds = ["RSS"]
 
 [params]
   env = "production"
-  description = "雨林的个人博客：产品思考、人生系统、健身与理财、阅读与旅行。"
+  description = "雨林的个人博客：人生系统、技术思考、生活实验。记录方法、AI 与日常观察。"
   
   defaultTheme = "dark" # auto / light / dark
   disableThemeToggle = true
