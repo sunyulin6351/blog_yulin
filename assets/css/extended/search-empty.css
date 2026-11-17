@@ -1,0 +1,51 @@
+/* 搜索无结果状态 */
+.search-empty {
+  margin-top: 1rem;
+  padding: 1.25rem 0 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-empty-title {
+  margin: 0 0 0.4rem;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.search-empty-text {
+  margin: 0 0 1rem;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.search-empty-query {
+  color: var(--primary);
+}
+
+.search-empty-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+.search-empty-tags a {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.search-empty-tags a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.search-empty-tags sup {
+  color: var(--secondary);
+  margin-left: 0.1rem;
+}

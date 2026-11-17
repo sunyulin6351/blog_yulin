@@ -1,0 +1,39 @@
+/* 分类 / 标签页的阅读面板 */
+.taxonomy-shell,
+body:has(.tag-entry) .page-header {
+  background: rgba(15, 15, 17, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.taxonomy-shell {
+  margin: 0 0 3rem;
+  padding: 1.5rem 2rem;
+}
+
+.taxonomy-shell .page-header {
+  margin: 0 0 1.2rem;
+}
+
+.taxonomy-shell .post-content.tax-intro {
+  max-width: 100%;
+}
+
+body:has(.tag-entry) .page-header {
+  margin: 0 0 1.25rem;
+  padding: 1.5rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .taxonomy-shell {
+    margin-bottom: 2rem;
+    padding: 1.1rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  body:has(.tag-entry) .page-header {
+    padding: 1.1rem 1.1rem;
+    border-radius: 12px;
+  }
+}

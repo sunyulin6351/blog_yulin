@@ -1,0 +1,72 @@
+/* 404 页面 */
+.not-found-page {
+  max-width: 760px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: rgba(15, 15, 17, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.not-found-code {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+.not-found-page h1 {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 1.6rem;
+}
+
+.not-found-text {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.not-found-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.not-found-links a {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: var(--primary);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.not-found-links a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+@media (max-width: 768px) {
+  .not-found-page {
+    margin: 2rem auto;
+    padding: 2rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .not-found-code {
+    font-size: 4rem;
+  }
+
+  .not-found-page h1 {
+    font-size: 1.4rem;
+  }
+}

@@ -50,6 +50,30 @@
     });
   });
 
+  const searchInput = document.querySelector('#searchInput');
+  const searchResults = document.querySelector('#searchResults');
+  const searchEmpty = document.querySelector('#searchEmpty');
+
+  if (searchInput && searchResults && searchEmpty) {
+    const queryLabel = searchEmpty.querySelector('.search-empty-query');
+    const syncSearchEmpty = function () {
+      const query = searchInput.value.trim();
+      const show = query.length > 0 && searchResults.children.length === 0;
+      searchEmpty.hidden = !show;
+      if (show && queryLabel) {
+        queryLabel.textContent = query;
+      }
+    };
+
+    new MutationObserver(syncSearchEmpty).observe(searchResults, { childList: true });
+    ['input', 'keyup', 'search'].forEach(function (eventName) {
+      searchInput.addEventListener(eventName, function () {
+        window.setTimeout(syncSearchEmpty, 0);
+      });
+    });
+    syncSearchEmpty();
+  }
+
   const nativeButtons = document.querySelectorAll('.share-native-btn');
   if (!navigator.share) {
     nativeButtons.forEach(function (btn) {

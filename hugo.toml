@@ -49,6 +49,9 @@ enableRobotsTXT = true
   enableSearch = true
   comments = true
 
+  [params.assets]
+    logo = "/images/logo-512.png"
+
   [params.giscus]
     repo = "sunyulin6351/blog_yulin"
     repoId = "R_kgDORHv4Wg"

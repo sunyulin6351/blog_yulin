@@ -2,7 +2,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
+{{- if eq .Kind "404" }}
+<meta name="robots" content="noindex, nofollow">
+{{- else if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
 <meta name="robots" content="index, follow">
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
@@ -10,7 +12,9 @@
 
 {{- /* Title */}}
 {{- $pageTitle := .Title -}}
-{{- if not $pageTitle -}}
+{{- if eq .Kind "404" -}}
+  {{- $pageTitle = "页面未找到" -}}
+{{- else if not $pageTitle -}}
   {{- if eq .Type "micro" -}}
     {{- $pageTitle = .Date.Format "2006年1月2日 15:04" -}}
   {{- end -}}

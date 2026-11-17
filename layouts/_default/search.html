@@ -1,0 +1,35 @@
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+
+<div id="searchbox">
+    <input id="searchInput" autofocus placeholder="{{ .Params.placeholder | default (printf "%s ↵" .Title) }}"
+        aria-label="搜索" type="search" autocomplete="off" maxlength="64">
+    <ul id="searchResults" aria-label="搜索结果"></ul>
+
+    <div id="searchEmpty" class="search-empty" hidden aria-live="polite">
+        <p class="search-empty-title">没有找到相关内容</p>
+        <p class="search-empty-text">没有找到与「<span class="search-empty-query"></span>」相关的内容，换个关键词试试。</p>
+        <div class="search-empty-tags">
+            <span>可以看看：</span>
+            {{- range first 8 site.Taxonomies.tags.ByCount }}
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <sup>{{ .Count }}</sup></a>
+            {{- end }}
+        </div>
+    </div>
+</div>
+
+{{- end }}{{/* end main */}}

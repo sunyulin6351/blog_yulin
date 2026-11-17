@@ -1,6 +1,8 @@
 ---
 title: ""
 date: 2026-11-16
+# 修改旧文时同步更新 lastmod，供 sitemap / 文章结构化数据使用
+lastmod: 2026-11-16
 # 稳定的英文/拼音 slug，用于 URL；不填会退回标题生成的中文 URL
 slug: ""
 draft: true

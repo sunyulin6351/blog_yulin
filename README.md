@@ -69,6 +69,8 @@ description: "一句话说明这篇文章解决什么问题（建议 60–100 �
 
 `description` 会用于 meta description 和社交分享；不写时模板会自动截取正文摘要的前 100 字。
 
+修改旧文章时，建议补一个 `lastmod: YYYY-MM-DD`，它会用于 sitemap 和文章结构化数据的更新时间。
+
 ## 目录结构
 
 ```
