@@ -1,0 +1,26 @@
+# 雨林说
+
+> 雨林的个人博客：人生系统、技术思考、生活实验。记录方法、AI 与日常观察。
+
+## 关于
+
+- [关于作者](https://blog.yulin.ltd/about/)
+- [文章归档](https://blog.yulin.ltd/archives/)
+
+## 主要内容
+
+- [文章](https://blog.yulin.ltd/posts/)：较长篇幅的思考与读书笔记
+- [想法](https://blog.yulin.ltd/micro/)：日常短记录
+- [搜索](https://blog.yulin.ltd/search/)
+
+## 近期文章
+
+- [AI 时代，真正值得学习的不是 Prompt，而是如何把 AI 组织成一套能工作的系统](https://blog.yulin.ltd/posts/2026/11/ai-system-not-prompt/)
+- [我的个人哲学是一场跨越两千年的合流](https://blog.yulin.ltd/posts/2026/06/personal-philosophy/)
+- [微小改变如何重塑人生系统](https://blog.yulin.ltd/posts/2026/02/atomic-habits/)
+- [对 AI 泡沫化现象的思考](https://blog.yulin.ltd/posts/2026/02/ai-bubble/)
+- [AI 使用方法论：从工具依赖到结构驱动](https://blog.yulin.ltd/posts/2026/03/ai-methodology/)
+
+## 订阅
+
+- [RSS](https://blog.yulin.ltd/index.xml)
