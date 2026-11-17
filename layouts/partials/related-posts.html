@@ -1,0 +1,14 @@
+{{- $related := site.RegularPages.Related . | first 3 -}}
+{{- with $related }}
+<aside class="related-posts" aria-label="相关文章">
+  <h2>相关文章</h2>
+  <ul>
+    {{- range . }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+    </li>
+    {{- end }}
+  </ul>
+</aside>
+{{- end }}

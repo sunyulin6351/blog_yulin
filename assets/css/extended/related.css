@@ -1,0 +1,59 @@
+/* 文末相关文章 */
+.related-posts {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.related-posts h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.related-posts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.related-posts li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.related-posts li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.related-posts a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.related-posts a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.related-posts time {
+  flex: none;
+  color: var(--secondary);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 768px) {
+  .related-posts li {
+    display: block;
+  }
+
+  .related-posts time {
+    display: block;
+    margin-top: 0.25rem;
+  }
+}

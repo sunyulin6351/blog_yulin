@@ -106,11 +106,6 @@ pre, code {
   border-radius: 10px;
 }
 
-/* 音频播放器占满正文宽度 */
-.post-content audio {
-  width: 100%;
-}
-
 html, body {
   height: 100%;
 }

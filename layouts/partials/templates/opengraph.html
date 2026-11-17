@@ -43,11 +43,17 @@
     <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}">
   {{- end}}
 {{- else }}
-  {{- with partial "_funcs/get-page-images" . }}
-    {{- range . | first 6 }}
+  {{- $images := partial "_funcs/get-page-images" . -}}
+  {{- if $images -}}
+    {{- range $images | first 6 }}
       <meta property="og:image" content="{{ .Permalink }}">
     {{- end }}
-  {{- end }}
+  {{- else -}}
+    <meta property="og:image" content="{{ "images/og-default.jpg" | absURL }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="雨林说 · 人生系统、技术思考、生活实验">
+  {{- end -}}
 {{- end }}
 
 {{- with .Params.audio }}

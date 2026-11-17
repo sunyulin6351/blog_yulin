@@ -16,6 +16,19 @@ enableRobotsTXT = true
 [permalinks]
   posts = "/posts/:year/:month/:slug/"
 
+[related]
+  threshold = 20
+  includeNewer = true
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "categories"
+    weight = 50
+
 [params]
   env = "production"
   author = "雨林"
@@ -82,6 +95,10 @@ enableRobotsTXT = true
   [[params.profileMode.buttons]]
     name = "归档"
     url = "/archives/"
+
+  [[params.profileMode.buttons]]
+    name = "关于"
+    url = "/about/"
 
 # Social Icons
 [[params.socialIcons]]

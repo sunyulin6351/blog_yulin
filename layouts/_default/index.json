@@ -2,7 +2,7 @@
 {{- range site.RegularPages -}}
     {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) -}}
     {{- $title := .Title -}}
-    {{- if not $title -}}{{- $title = .Plain | replaceRE `\s+` " " | strings.TrimSpace | truncate 30 -}}{{- end -}}
+    {{- if not $title -}}{{- $title = .Plain | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 30 -}}{{- end -}}
     {{- $.Scratch.Add "index" (dict "title" $title "content" .Plain "permalink" .Permalink "summary" .Summary) -}}
     {{- end -}}
 {{- end -}}

@@ -12,10 +12,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ .Permalink }}">
 {{- else -}}
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ "images/og-default.jpg" | absURL }}">
+<meta name="twitter:image:alt" content="雨林说 · 人生系统、技术思考、生活实验">
 {{- end -}}
 {{- end }}
-<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:title" content="{{ or .Title site.Title }}">
 <meta name="twitter:description" content="{{ partial "description.html" . }}">
 
 {{- $twitterSite := "" }}

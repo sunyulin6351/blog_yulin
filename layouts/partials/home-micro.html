@@ -9,7 +9,7 @@
     <li>
       <a href="{{ .RelPermalink }}">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time>
-        <span class="home-item-title">{{ .Plain | truncate 70 }}</span>
+        <span class="home-item-title">{{ .Plain | htmlUnescape | truncate 70 }}</span>
       </a>
     </li>
     {{- end }}

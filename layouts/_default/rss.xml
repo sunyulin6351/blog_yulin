@@ -66,9 +66,9 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages }}
-    {{- if and (ne .Layout `search`) (ne .Layout `archives`) }}
+    {{- if and (ne .Layout `search`) (ne .Layout `archives`) (not .Params.hiddenInRSS) }}
     {{- $itemTitle := .Title -}}
-    {{- if not $itemTitle -}}{{- $itemTitle = .Plain | replaceRE `\s+` " " | strings.TrimSpace | truncate 60 -}}{{- end -}}
+    {{- if not $itemTitle -}}{{- $itemTitle = .Plain | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 60 -}}{{- end -}}
     <item>
       <title>{{ $itemTitle }}</title>
       <link>{{ .Permalink }}</link>
