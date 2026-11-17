@@ -7,7 +7,7 @@
 
 .related-posts h2 {
   margin: 0 0 0.75rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .related-posts ul {
@@ -32,6 +32,8 @@
 
 .related-posts a {
   color: var(--primary);
+  font-size: 14px;
+  line-height: 1.5;
   text-decoration: none;
 }
 

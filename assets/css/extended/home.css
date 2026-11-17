@@ -28,7 +28,7 @@
 
 .home-section-head h2 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1.4;
 }
 
@@ -81,13 +81,13 @@
 
 .home-item-title {
   min-width: 0;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.55;
   overflow-wrap: anywhere;
 }
 
 .home-micro-list .home-item-title {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.65;
 }
 

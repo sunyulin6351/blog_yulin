@@ -10,34 +10,47 @@ main {
 
 /* 文章正文阅读宽度（更窄，更专注） */
 .post-content {
-    max-width: 800px;
+    max-width: 760px;
     margin: auto;
-    font-size: 16px;
-    line-height: 2.0;
+    font-size: 15px;
+    line-height: 1.85;
 }
 
 /* 正文小标题尺寸优化（Medium 风） */
 .post-content h2 {
-  font-size: 1.6rem;
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
 }
 
 .post-content h3 {
-  font-size: 1.35rem;
-  margin-top: 1.6rem;
-  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.55rem;
 }
 
 .post-content h4 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
 }
 
 /* 标题更有呼吸感 */
 .post-title {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
     line-height: 1.3;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.1rem;
+}
+
+.post-description {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+}
+
+.entry-header h2 {
+    font-size: 1.35rem;
 }
 
 /* 列表卡片 */
@@ -55,7 +68,7 @@ main {
 
 /* 列表页摘要字体 */
 .entry-content {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.7;
 }
 
@@ -67,7 +80,7 @@ main {
 
 /* 正文段落间距 */
 .post-content p {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.25em;
 }
 
 /* 正文图片居中 */
@@ -80,7 +93,7 @@ main {
 /* 让列表/引用更舒服 */
 .post-content ul,
 .post-content ol {
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
 .post-content blockquote {
@@ -245,22 +258,27 @@ body::after {
 
   /* 文章主标题 */
   .post-title {
-    font-size: 1.6rem !important;
+    font-size: 1.45rem !important;
   }
 
   /* 正文 h2 */
   .post-content h2 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   /* 正文 h3 */
   .post-content h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   /* 首页卡片标题 */
   .entry-header h2 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+  /* 列表 / 分类 / 标签页标题 */
+  .page-header h1 {
+    font-size: 1.7rem;
   }
 
   /* 阅读面板：收窄内边距，避免手机上正文过窄 */
@@ -286,7 +304,7 @@ body::after {
   background: rgba(20, 20, 20, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -329,7 +347,7 @@ body::after {
 
 @media (max-width: 768px) {
   .post-content table:not(.highlighttable, .highlight table, .gist .highlight) {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .post-content table:not(.highlighttable, .highlight table, .gist .highlight) th,
