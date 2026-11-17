@@ -110,13 +110,25 @@ html, body {
   height: 100%;
 }
 
-/* 背景图层 */
+/* 背景图层
+   源图在 assets/images/home-bg.jpg（不发布），
+   页面使用 1280/1920 两档 WebP，避免每页下载 3.3MB 原图。 */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url('/images/home-bg.jpg') center/cover no-repeat;
+  background-color: #0f0f11;
+  background-image: url('/images/home-bg-1280.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   z-index: -2;
+}
+
+@media (min-width: 769px) {
+  body::before {
+    background-image: url('/images/home-bg-1920.webp');
+  }
 }
 
 /* 暗色遮罩层 */
