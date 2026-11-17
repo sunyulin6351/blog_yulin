@@ -1,0 +1,120 @@
+/* 首页内容入口：profile 下方的最新文章 / 最近想法 */
+.main .profile {
+  min-height: clamp(520px, 72vh, 760px);
+}
+
+.home-sections {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25rem;
+  margin: 1rem auto 3rem;
+}
+
+.home-section {
+  background: rgba(15, 15, 17, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  padding: 1.4rem 1.6rem;
+  min-width: 0;
+}
+
+.home-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-section-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.home-section-head a {
+  flex: none;
+  color: var(--secondary);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.home-section-head a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.home-list {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+}
+
+.home-list li {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-list li:first-child {
+  border-top: 0;
+}
+
+.home-list a {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.72rem 0;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.home-list a:hover .home-item-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.home-list time {
+  color: var(--secondary);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-item-title {
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.home-micro-list .home-item-title {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .home-sections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .main .profile {
+    min-height: 560px;
+  }
+
+  .home-sections {
+    gap: 1rem;
+    margin: 0.5rem auto 2rem;
+  }
+
+  .home-section {
+    padding: 1.1rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  .home-list a {
+    grid-template-columns: 3.8rem minmax(0, 1fr);
+    gap: 0.6rem;
+    padding: 0.65rem 0;
+  }
+}

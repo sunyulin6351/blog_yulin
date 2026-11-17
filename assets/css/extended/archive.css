@@ -1,0 +1,34 @@
+/* 归档页沿用正文阅读面板的底色，避免长列表直接压在背景图上 */
+body:has(.archive-year) .page-header,
+.archive-year {
+  background: rgba(15, 15, 17, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+body:has(.archive-year) .page-header {
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.archive-year {
+  padding: 0.5rem 2rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.archive-year:not(:last-of-type) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  body:has(.archive-year) .page-header {
+    padding: 1.1rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  .archive-year {
+    padding: 0.25rem 1.1rem 0.75rem;
+    border-radius: 12px;
+  }
+}

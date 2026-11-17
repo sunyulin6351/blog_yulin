@@ -1,6 +1,9 @@
 ---
 title: "你好，世界！"
 date: 2026-02-03
+slug: "hello-world"
+aliases:
+  - "/posts/2026/02/你好世界/"
 draft: false
 description: "这是博客的第一篇文章，记录我开始搭建这个个人站点的起点，也是之后所有长文与微记录的入口。"
 ---

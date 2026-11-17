@@ -3,9 +3,26 @@
   margin: 1.5rem auto 3rem;
 }
 
+.micro-intro {
+  margin-bottom: 1.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.micro-intro p {
+  margin: 0;
+}
+
 .micro-post {
   padding: 16px 0;
   border-bottom: 1px solid #eee;
+}
+
+.micro-post:last-child {
+  border-bottom: 0;
 }
 
 .micro-date {
@@ -14,9 +31,23 @@
   margin-bottom: 6px;
 }
 
+.micro-date a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.micro-date a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 .micro-content {
   font-size: 16px;
   line-height: 1.6;
+}
+
+.micro-single .post-title {
+  font-size: 1.4rem;
 }
 
 @media (max-width: 768px) {
@@ -26,5 +57,9 @@
 
   .micro-post {
     padding: 14px 0;
+  }
+
+  .micro-single .post-title {
+    font-size: 1.2rem;
   }
 }

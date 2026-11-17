@@ -1,17 +1,17 @@
-<h2>最近动态</h2>
-
-<ul>
-
-{{ range first 5 (where site.RegularPages "Type" "micro") }}
-
-<li>
-<span style="color:#888;font-size:12px;">
-{{ .Date.Format "01-02" }}
-</span>
- · 
-{{ .Plain }}
-</li>
-
-{{ end }}
-
-</ul>
+{{- $micro := where site.RegularPages "Type" "micro" -}}
+<section class="home-section home-micro">
+  <header class="home-section-head">
+    <h2>最近想法</h2>
+    <a href="/micro/">全部想法 →</a>
+  </header>
+  <ul class="home-list home-micro-list">
+    {{- range first 5 $micro.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time>
+        <span class="home-item-title">{{ .Plain | truncate 70 }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>

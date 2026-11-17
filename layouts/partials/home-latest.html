@@ -1,0 +1,17 @@
+{{- $posts := where site.RegularPages "Type" "posts" -}}
+<section class="home-section home-posts">
+  <header class="home-section-head">
+    <h2>最新文章</h2>
+    <a href="/posts/">全部文章 →</a>
+  </header>
+  <ul class="home-list">
+    {{- range first 5 $posts.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+        <span class="home-item-title">{{ .Title }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>

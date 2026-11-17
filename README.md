@@ -27,6 +27,7 @@
 | 主题 | [PaperMod](https://github.com/adityatelange/hugo-PaperMod) |
 | 评论系统 | [Giscus](https://giscus.app/)（基于 GitHub Discussions） |
 | 搜索 | Fuse.js 全文搜索 |
+| 订阅 | RSS（`/index.xml`） |
 | 部署 | GitHub Pages |
 
 ## 本地开发
@@ -56,12 +57,15 @@ hugo new posts/文章名称.md
 ---
 title: "文章标题"
 date: 2026-01-01
+slug: "article-slug"
 draft: false
 categories: ["分类名"]
 tags: ["标签1", "标签2"]
 description: "一句话说明这篇文章解决什么问题（建议 60–100 字）"
 ---
 ```
+
+`slug` 用于生成稳定 URL；改标题不会改变链接。如果之后修改 slug，记得在 front matter 里用 `aliases` 保留旧地址。
 
 `description` 会用于 meta description 和社交分享；不写时模板会自动截取正文摘要的前 100 字。
 

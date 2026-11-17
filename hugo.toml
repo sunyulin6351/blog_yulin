@@ -6,31 +6,30 @@ title = "雨林说"
 theme = "PaperMod"
 
 enableRobotsTXT = true
-paginate = 10
-disableKinds = ["RSS"]
 
-[author]
-  name = "雨林"
+[pagination]
+  pagerSize = 10
 
 [outputs]
-  home = ["HTML", "JSON"]
+  home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
   posts = "/posts/:year/:month/:slug/"
 
 [params]
   env = "production"
+  author = "雨林"
+  mainSections = ["posts"]
   description = "雨林的个人博客：人生系统、技术思考、生活实验。记录方法、AI 与日常观察。"
   
   defaultTheme = "dark" # auto / light / dark
   disableThemeToggle = true
-  customCSS = ["css/extended/medium.css"]
   disableSpecial1stPost = true
   ShowShareButtons = true
   ShareButtons = ["wechat"]
   ShowReadingTime = false
   ShowBreadCrumbs = true
-  ShowPostNavLinks = false
+  ShowPostNavLinks = true
   ShowCodeCopyButtons = true
   ShowWordCount = false
   ShowRssButtonInSectionTermList = true
@@ -45,7 +44,7 @@ disableKinds = ["RSS"]
     mapping = "pathname"
     reactionsEnabled = "1"
     emitMetadata = "0"
-    theme = "preferred_color_scheme"
+    theme = "dark"
     lang = "zh-CN"
 
   # Contents
@@ -80,10 +79,19 @@ disableKinds = ["RSS"]
     name = "文章"
     url = "/posts/"
 
+  [[params.profileMode.buttons]]
+    name = "归档"
+    url = "/archives/"
+
 # Social Icons
 [[params.socialIcons]]
   name = "Github"
   url = "https://github.com/sunyulin6351"
+
+[[params.socialIcons]]
+  name = "Rss"
+  title = "RSS"
+  url = "/index.xml"
 
 # 顶部菜单
 [menu]

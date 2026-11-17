@@ -1,2 +1,7 @@
 # Hugo 构建产物，由 GitHub Actions 在部署时生成，不再入库
 /public/
+
+# 本地构建/缓存
+.hugo_build.lock
+.build/
+resources/

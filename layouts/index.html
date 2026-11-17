@@ -1,5 +1,10 @@
 {{ define "main" }}
 
-{{- partial "index_profile.html" . }}
+{{- partial "index_profile.html" . -}}
+
+<div class="home-sections" id="latest">
+  {{- partial "home-latest.html" . -}}
+  {{- partial "home-micro.html" . -}}
+</div>
 
 {{ end }}
