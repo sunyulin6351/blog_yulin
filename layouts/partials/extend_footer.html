@@ -1,0 +1,78 @@
+<script>
+(function () {
+  const copyButtons = document.querySelectorAll('.share-copy-btn');
+  copyButtons.forEach(function (btn) {
+    btn.addEventListener('click', async function () {
+      const url = btn.dataset.url;
+      const label = btn.querySelector('.share-label');
+      const original = label.textContent;
+      let ok = false;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(url);
+          ok = true;
+        }
+      } catch (error) {
+        ok = false;
+      }
+
+      if (!ok) {
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          ok = document.execCommand('copy');
+        } catch (error) {
+          ok = false;
+        } finally {
+          textarea.remove();
+        }
+      }
+
+      if (!ok) {
+        window.prompt('复制失败，请手动复制链接：', url);
+      }
+
+      label.textContent = ok ? '链接已复制' : '复制失败';
+      btn.dataset.feedback = ok ? '链接已复制' : '复制失败';
+      btn.classList.toggle('is-copied', ok);
+      btn.classList.toggle('is-copy-failed', !ok);
+      window.setTimeout(function () {
+        label.textContent = original;
+        btn.classList.remove('is-copied', 'is-copy-failed');
+        btn.dataset.feedback = '';
+      }, 1800);
+    });
+  });
+
+  const nativeButtons = document.querySelectorAll('.share-native-btn');
+  if (!navigator.share) {
+    nativeButtons.forEach(function (btn) {
+      const item = btn.closest('li');
+      (item || btn).remove();
+    });
+    return;
+  }
+
+  nativeButtons.forEach(function (btn) {
+    btn.hidden = false;
+    btn.addEventListener('click', async function () {
+      try {
+        await navigator.share({
+          title: btn.dataset.title || document.title,
+          url: btn.dataset.url || window.location.href
+        });
+      } catch (error) {
+        if (error && error.name !== 'AbortError') {
+          console.warn('系统分享失败', error);
+        }
+      }
+    });
+  });
+})();
+</script>

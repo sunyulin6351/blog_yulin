@@ -1,5 +1,8 @@
 {{- $pageurl := .Permalink }}
 {{- $title := .Title }}
+{{- if not $title }}
+  {{- $title = .Plain | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 30 }}
+{{- end }}
 
 {{- $.Scratch.Set "tags" ""}}
 
@@ -94,9 +97,9 @@
     {{- end }}
     {{- if (cond ($custom) (in $ShareButtons "wechat") (false)) }}
     <li>
-        <button type="button" class="wechat-share-btn" aria-label="分享到微信"
+        <button type="button" class="wechat-share-btn share-icon-btn" title="分享到微信" aria-label="分享到微信"
             onclick="document.getElementById('wechat-qr-modal').style.display='flex'">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="30px" width="30px" fill="currentColor">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
                 <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.328.328 0 0 0 .186-.059l2.035-1.18a.896.896 0 0 1 .48-.144c.085 0 .17.01.254.029 1.019.26 2.099.4 3.215.4h.208c-.057-.327-.085-.658-.085-.995 0-3.753 3.589-6.793 8.015-6.793h.208c-.535-3.773-4.31-6.803-8.892-6.803zm-2.55 3.67c.577 0 1.044.466 1.044 1.044s-.467 1.044-1.044 1.044c-.578 0-1.044-.466-1.044-1.044s.466-1.044 1.044-1.044zm5.101 0c.577 0 1.044.466 1.044 1.044s-.467 1.044-1.044 1.044c-.578 0-1.044-.466-1.044-1.044s.466-1.044 1.044-1.044zM24 14.48c0-3.484-3.317-6.305-7.395-6.305-4.077 0-7.394 2.821-7.394 6.305 0 3.483 3.317 6.304 7.394 6.304.895 0 1.757-.13 2.557-.366a.635.635 0 0 1 .198-.031.687.687 0 0 1 .37.107l1.616.937a.272.272 0 0 0 .148.05.233.233 0 0 0 .232-.232c0-.058-.023-.113-.037-.17l-.31-1.18a.477.477 0 0 1 .169-.527C23.087 18.331 24 16.5 24 14.48zm-9.718-.573c-.46 0-.832-.372-.832-.831 0-.46.372-.832.832-.832.46 0 .832.372.832.832 0 .46-.372.831-.832.831zm4.647 0c-.46 0-.832-.372-.832-.831 0-.46.372-.832.832-.832.46 0 .831.372.831.832 0 .46-.371.831-.831.831z"/>
             </svg>
         </button>
@@ -111,6 +114,53 @@
                     onclick="document.getElementById('wechat-qr-modal').style.display='none'">关闭</button>
             </div>
         </div>
+    </li>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "weibo") (false)) }}
+    <li>
+        <a target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="分享到微博" aria-label="分享到微博"
+            href="https://service.weibo.com/share/share.php?url={{ $pageurl | urlquery }}&amp;title={{ $title | urlquery }}">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"/>
+            </svg>
+        </a>
+    </li>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "douban") (false)) }}
+    <li>
+        <a target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="分享到豆瓣" aria-label="分享到豆瓣"
+            href="https://www.douban.com/share/service?href={{ $pageurl | urlquery }}&amp;name={{ $title | urlquery }}">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M.51 3.06h22.98V.755H.51V3.06Zm20.976 2.537v9.608h-2.137l-1.669 5.76H24v2.28H0v-2.28h6.32l-1.67-5.76H2.515V5.597h18.972Zm-5.066 9.608H7.58l1.67 5.76h5.501l1.67-5.76ZM18.367 7.9H5.634v5.025h12.733V7.9Z"/>
+            </svg>
+        </a>
+    </li>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "copy") (false)) }}
+    <li>
+        <button type="button" class="share-icon-btn share-copy-btn" data-url="{{ $pageurl }}" title="复制链接"
+            aria-label="复制文章链接">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="share-label sr-only" aria-live="polite">复制链接</span>
+        </button>
+    </li>
+    {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "native") (false)) }}
+    <li>
+        <button type="button" class="share-icon-btn share-native-btn" hidden title="系统分享"
+            data-title="{{ $title }}" data-url="{{ $pageurl }}" aria-label="系统分享">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path>
+            </svg>
+        </button>
     </li>
     {{- end }}
 </ul>
