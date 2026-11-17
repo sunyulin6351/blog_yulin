@@ -1,5 +1,7 @@
 baseURL = "https://blog.yulin.ltd/"
-locale = "zh-CN"
+defaultContentLanguage = "zh"
+languageCode = "zh-CN"
+timeZone = "Asia/Shanghai"
 title = "雨林说"
 theme = "PaperMod"
 
