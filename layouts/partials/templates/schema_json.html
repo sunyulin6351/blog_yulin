@@ -7,9 +7,9 @@
   "url": {{ site.Home.Permalink }},
   "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
   {{- if (eq site.Params.schema.publisherType "Person") }}
-  "image": {{ (site.Params.assets.logo | default (site.Params.assets.favicon | default "favicon.ico") | absURL) | jsonify }},
+  "image": {{ (site.Params.assets.logo | default (site.Params.assets.favicon | default "favicon.ico") | absURL) | jsonify | safeJS }},
   {{- else }}
-  "logo": {{ (site.Params.assets.logo | default (site.Params.assets.favicon | default "favicon.ico") | absURL) | jsonify }},
+  "logo": {{ (site.Params.assets.logo | default (site.Params.assets.favicon | default "favicon.ico") | absURL) | jsonify | safeJS }},
   {{- end }}
   "sameAs": [
     {{- if site.Params.schema.sameAs }}
@@ -87,9 +87,9 @@
   {{- else }}
     {{- $images := partial "templates/_funcs/get-page-images" . -}}
     {{- if $images -}}
-  "image": {{ (index $images 0).Permalink | jsonify }},
+  "image": {{ (index $images 0).Permalink | jsonify | safeJS }},
     {{- else -}}
-  "image": {{ "images/og-default.jpg" | absURL | jsonify }},
+  "image": {{ "images/og-default.jpg" | absURL | jsonify | safeJS }},
     {{- end -}}
   {{- end -}}
   "datePublished": {{ .PublishDate }},
@@ -120,7 +120,7 @@
     "name": {{ site.Title }},
     "logo": {
       "@type": "ImageObject",
-      "url": {{ (site.Params.assets.logo | default (site.Params.assets.favicon | default "favicon.ico") | absURL) | jsonify }}
+      "url": {{ (site.Params.assets.logo | default (site.Params.assets.favicon | default "favicon.ico") | absURL) | jsonify | safeJS }}
     }
   }
 }
