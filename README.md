@@ -19,6 +19,40 @@
 
 产品、健身、理财等方向暂不单独立栏，等文章多到能撑起一个栏目时再拆。
 
+## 想法（micro）
+
+长文之外还有一条「想法」流，站点地址是 `/micro/`，首页显示最近 5 条。它不进分类、不需要成文，适合一句话的观察、灵感和日常记录。
+
+有两种发布方式：
+
+**方式一：开一个 Issue（手机上也能发）**
+
+在仓库里新建 Issue，**标题就是想法正文**。提交后 `.github/workflows/microblog.yml` 会：
+
+1. 在 `content/micro/` 生成 `YYYY-MM-DD-HHMM-<issue号>.md`，时间取北京时间；
+2. 自动提交到 `main`，触发 Hugo 构建并部署；
+3. 部署完成后关闭这个 Issue。
+
+为防滥用，只有仓库所有者自己创建的 Issue 会触发这套流程。
+
+**方式二：直接写文件**
+
+在 `content/micro/` 下新建 `YYYY-MM-DD-HHMM.md`，front matter 只需要三行：
+
+```yaml
+---
+date: 2026-06-10T08:07:45+08:00
+type: micro
+draft: false
+---
+
+一句话的想法。
+```
+
+`date` 请带上 `+08:00` 时区，文件名与 `date` 的日期、时分保持一致，列表按 `date` 倒序展示。
+
+想法页由 `content/micro/_index.md` 的 cascade 统一设置：不进 `sitemap.xml`、`robotsNoIndex`、关闭评论；但它们仍会出现在 RSS 和站内搜索里。最早的两条记录文件名用的是 UTC 小时（`2026-03-05-0259.md` 在站点上显示 10:59），改文件名会同时改掉 URL 和评论映射，所以保持原样即可。
+
 ## 技术栈
 
 | 组件 | 说明 |
@@ -71,16 +105,34 @@ description: "一句话说明这篇文章解决什么问题（建议 60–100 �
 
 修改旧文章时，建议补一个 `lastmod: YYYY-MM-DD`，它会用于 sitemap 和文章结构化数据的更新时间。
 
+## 发布与部署
+
+推送到 `main` 就会触发 `.github/workflows/hugo.yml`：用 Hugo 0.170.0（extended）执行 `hugo --minify`，再把 `public/` 发布到 GitHub Pages。通常提交后一两分钟内生效；GitHub Pages 的 HTML 缓存约 10 分钟，看不到变化先强制刷新。
+
+`.github/workflows/microblog.yml` 走同一条构建路径，只是多一步：从 Issue 生成想法文件并提交到 `main`。
+
 ## 目录结构
 
 ```
 .
+├── .github/workflows/      # hugo.yml（构建部署）、microblog.yml（Issue → 想法）
+├── archetypes/             # hugo new 使用的模板
+├── assets/
+│   ├── css/extended/       # 覆盖 PaperMod 的自定义样式
+│   └── images/             # 会被 Hugo 处理的图片
 ├── content/
-│   └── posts/       # 博客文章（Markdown）
-├── static/          # 静态资源（图片、音频等）
-├── assets/          # 自定义 CSS/JS
-├── themes/PaperMod/ # 主题（Git 子模块）
-└── hugo.toml        # 站点配置
+│   ├── posts/              # 长文（文件名 YYYYMMDD.md，用 slug 固定 URL）
+│   ├── micro/              # 想法（短记录，YYYY-MM-DD-HHMM.md）
+│   ├── about.md            # /about/
+│   ├── archives.md         # /archives/
+│   ├── search.md           # /search/
+│   ├── categories/         # 分类索引页
+│   └── tags/               # 标签索引页
+├── docs/MAINTENANCE.md     # 维护说明：主题覆盖清单、升级步骤
+├── layouts/                # 模板覆盖：404、搜索、micro、partials、OG/JSON-LD
+├── static/                 # 原样输出：图片、favicon、llms.txt、CNAME
+├── themes/PaperMod/        # 主题（Git 子模块）
+└── hugo.toml               # 站点配置
 ```
 
 ## 许可
